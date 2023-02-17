@@ -18,12 +18,24 @@
         <p><a href="Find2ContractsServlet">HOME PAGE</a></p>
         <table>
             <c:forEach var="contract" varStatus="counter" items="${requestScope.contractList}">
+                <tr><td>${contract.toString()}</td></tr>
                 <tr>
-                    <td>${contract.toString()}</td>
-                    <td>Owner: <form action="ViewOwnerProfileServlet">
+                    <td>Owner: </td>
+                    <td>
+                        <form action="ViewOwnerProfileServlet">
                             <input type="submit" value="${contract.getOName()}"/>
                             <input type="hidden" value="viewOwnerProfile" name="action"/>
                             <input type="hidden" value="${contract.getOID()}" name="OID"/>
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Seller:</td>
+                    <td>
+                        <form action="MainController">
+                            <input type="submit" value="${contract.getSname()}"/>
+                            <input type="hidden" value="viewSellerProfile" name="action"/>
+                            <input type="hidden" value="${contract.getSaID()}" name="SID"/>
                         </form>
                     </td>
                 </tr>

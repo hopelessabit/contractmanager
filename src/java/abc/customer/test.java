@@ -3,10 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package abc.utils;
-
-import abc.customer.CustomerDAO;
-import abc.customer.CustomerDTO;
+package abc.customer;
 
 /**
  *
@@ -14,8 +11,6 @@ import abc.customer.CustomerDTO;
  */
 public class test {
     public static void main(String[] args) {
-        CustomerDTO user = new CustomerDTO();
-        user = CustomerDAO.getAccount("khachhanga@gmail.com", "123");
-        System.out.println(user.toString());
+        
     }
 }

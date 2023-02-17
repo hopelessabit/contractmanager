@@ -2,23 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/mical/Downloads/contractmanager-20230213T154649Z-001/contractmanager/web/ContractPage.jsp</file>
-            <file>file:/C:/Users/mical/Downloads/contractmanager-20230213T154649Z-001/contractmanager/src/java/abc/controllers/ViewOwnerProfileServlet.java</file>
-            <file>file:/C:/Users/mical/Downloads/contractmanager-20230213T154649Z-001/contractmanager/src/java/abc/controllers/FindAllContractsServlet.java</file>
-            <file>file:/C:/Users/mical/Downloads/contractmanager-20230213T154649Z-001/contractmanager/src/java/abc/controllers/ViewAllSelfContracts.java</file>
-            <file>file:/C:/Users/mical/Downloads/contractmanager-20230213T154649Z-001/contractmanager/src/java/abc/controllers/Find2ContractsServlet.java</file>
-            <file>file:/C:/Users/mical/Downloads/contractmanager-20230213T154649Z-001/contractmanager/web/Index.jsp</file>
-            <file>file:/C:/Users/mical/Downloads/contractmanager-20230213T154649Z-001/contractmanager/web/ChangePassword.jsp</file>
-            <file>file:/C:/Users/mical/Downloads/contractmanager-20230213T154649Z-001/contractmanager/src/java/abc/utils/DBUtils.java</file>
-            <file>file:/C:/Users/mical/Downloads/contractmanager-20230213T154649Z-001/contractmanager/web/CustomerIndex.jsp</file>
-            <file>file:/C:/Users/mical/Downloads/contractmanager-20230213T154649Z-001/contractmanager/src/java/abc/boardmanagers/BoardManagerDAO.java</file>
-            <file>file:/C:/Users/mical/Downloads/contractmanager-20230213T154649Z-001/contractmanager/src/java/abc/admins/AdminDAO.java</file>
-            <file>file:/C:/Users/mical/Downloads/contractmanager-20230213T154649Z-001/contractmanager/src/java/abc/controllers/LoginServlet.java</file>
-            <file>file:/C:/Users/mical/Downloads/contractmanager-20230213T154649Z-001/contractmanager/src/java/abc/utils/test.java</file>
-            <file>file:/C:/Users/mical/Downloads/contractmanager-20230213T154649Z-001/contractmanager/src/java/abc/customers/CustomerDAO.java</file>
-            <file>file:/C:/Users/mical/Downloads/contractmanager-20230213T154649Z-001/contractmanager/src/java/abc/controllers/ViewSelfProfileServlet.java</file>
-            <file>file:/C:/Users/mical/Downloads/contractmanager-20230213T154649Z-001/contractmanager/src/java/abc/controllers/MainController.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

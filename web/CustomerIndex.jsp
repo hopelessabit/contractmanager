@@ -5,7 +5,7 @@
 --%>
 
 <%@page import="java.util.ArrayList"%>
-<%@page import="abc.contracts.ContractDTO"%>
+<%@page import="abc.contract.ContractDTO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -21,32 +21,25 @@
             <input type="hidden" value="C" name="userTypeFromJsp"/>
             <input type="submit" value="View Profile" name="action"/>
         </form>
-        
+
         <!--Dung de view all contracts-->
-        <form action="viewAllContracts" method="post">
+        <form action="MainController" method="post">
             <input type="submit" name="action" value="View Contract"/>
         </form>
-        
+
         <!-- Dung de view 2 contracts-->
-        <c:set var="contractList" value="${requestScope.contractList}"></c:set>
-            <table>
+        <table>
             <c:forEach var="contract" varStatus="counter" items="${requestScope.contractList}">
-                <tr>
-                    <td>Contract's ID: ${contract.getCoID()}</td>
-                    <td>${contract.toString()}</td>
-                    <td>Customer's ID: ${contract.getCID()}</td>
-                    <td>Owner: <form action="viewOwnerProfileServlet">
-                                    <input type="submit" value="${contract.getOName()}"/>
-                                    <input type="hidden" value="viewOwnerProfile" name="action"/>
-                                    <input type="hidden" value="${contract.getOID()}" name="OID"/>
-                                    <input type="hidden" value="${requestScope.userName}" name="userName"/>
-                                    <input type="hidden" value="${requestScope.userID}" name="userID"/>
-                                    <input type="hidden" value="${requestScope.userType}" name="userType"/>
-                                </form>
-                    </td>
-                </tr>
+                <tr><td>Contract's ID: ${contract.getCoID()}</td></tr>
+                <tr><td>${contract.toString()}</td></tr>
             </c:forEach>
+            <c:if test="${requestScope.contractStats  == -1}" >
+                <tr><td>Khong co contract</td><tr>
+            </c:if>
         </table>
 
     </body>
 </html>
+
+
+            

@@ -13,25 +13,42 @@
         <title>${sessionScope.OProfile.getFullName()}Profile</title>
     </head>
     <body>
+        <h1>hello</h1>
         <!--Truyen xuong userName, userID, userType, profileOwner-->
-        <h1>Welcome, ${sessionScope.userName}</h1>  
+        <h1>Welcome, ${sessionScope.user.getFullName()}</h1>  
         <p><a href="MainController?action=Find2contracts">HOME PAGE</a></p>
-        ${requestScope.viewProfile.toString()}
-        <table>
-            <c:choose>
-                <c:when test="${requestScope.edit}"> <%--Khu nay dung de edit--%> 
-                    <form action="editProfileServlet">
-                        <tr><td>Email </td> <td><input type="text" name="txtEmail"/></td></tr>
-                        <tr><td>Password </td> <td><input type="text" name="txtPassword"/></td></tr>
-                        <tr><td>Date of birth </td><td><input type="date" name="txtDate"/></td></tr>
-                        <tr><td>Full name </td><td><input type="text" name="txtFullName"/></td></tr>
-                        <tr><td><input type="submit" name="action" value="Save Profile"/></td><td></td></tr>
-                    </form>
-                </c:when>
-                <c:otherwise> <%--Khu nay dung de view thoi--%>
-                    <p>false</p> 
-                </c:otherwise>
-            </c:choose>
+        <c:set var="profileType" value="${requestScope.profileType}"></c:set>
+            <table>
+            <c:set var="edit" value="${requestScope.edit}"></c:set>
+            <c:if test="${edit == true}">
+                <form action="editProfileServlet">
+                    <tr><td>View Image: ${requestScope.viewProfile.getAvatar()}</td></tr>
+                    <tr><td>Full name</td><td><input type="text" name="txtFullName"value="${requestScope.viewProfile.getFullName()}"/></td></tr>
+                    <tr><td>Email</td> <td><input type="text" name="txtEmail" value="${requestScope.viewProfile.getEmail()}"/></td></tr>
+                    <tr><td>CID</td><td><input type="text" name="txtcid" value="${requestScope.viewProfile.getCCID()}"></td></tr>
+                    <tr><td>Date of birth</td><td><input type="date" name="txtDate" value="${requestScope.viewProfile.getDateOfBirth()}"/></td></tr>
+                    <tr><td>Address</td><td><input type="text" name="txtAddress" value="${requestScope.viewProfile.getAddress()}"/></td></tr>
+                    <tr><td><input type="submit" name="action" value="Save Profile"/></td><td></td></tr>
+                </form>
+            </c:if>
+            <c:if test="${edit != true}">
+                <tr><td>Full name</td><td>${requestScope.viewProfile.getFullName()}</td></tr>
+                <tr><td>Email</td><td>${requestScope.viewProfile.getEmail()}</td></tr>
+                <c:if test="${profileType=='S'}">
+                    <tr><td>SID</td><td>${requestScope.viewProfile.getSaID()}</td></tr>
+                </c:if>
+                <c:if test="${profileType=='O'}">
+                    <tr><td>SID</td><td>${requestScope.viewProfile.getOID()}</td></tr>
+                </c:if>
+                <c:if test="${profileType=='C'}">
+                    <tr><td>SID</td><td>${requestScope.viewProfile.getCID()}</td></tr>
+                </c:if>
+                <c:if test="${profileType=='R'}">
+                    <tr><td>SID</td><td>${requestScope.viewProfile.getRID()}</td></tr>
+                </c:if>
+                <tr><td>Date of birth</td><td>${requestScope.viewProfile.getDateOfBirth()}</td></td></tr>
+                <tr><td>Address</td><td>${requestScope.viewProfile.getAddress()}</td></tr>
+            </c:if>
         </table>
 
     </body>
