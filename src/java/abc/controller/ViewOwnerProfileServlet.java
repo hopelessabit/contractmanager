@@ -42,6 +42,7 @@ public class ViewOwnerProfileServlet extends HttpServlet {
             String userName = ((CustomerDTO) session.getAttribute("user")).getFullName();
             OwnerDTO OProfile = OwnerDAO.searchOwner(OID);
             request.setAttribute("viewProfile", OProfile);
+            request.setAttribute("profileType", "O");
             request.setAttribute("edit", false);
             request.getRequestDispatcher("ViewProfile.jsp").forward(request, response);
 //            response.sendRedirect("ViewProfile.jsp");

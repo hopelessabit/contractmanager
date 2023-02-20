@@ -15,20 +15,46 @@
         <title>Contract Manage</title>
     </head>
     <body>
-        <p><a href="Find2ContractsServlet">HOME PAGE</a></p>
-        <table>
-            <c:forEach var="contract" varStatus="counter" items="${requestScope.contractList}">
-                <tr><td>${contract.toString()}</td></tr>
+    </form>
+    <form action="MainController" method="post">
+        <input type="submit" value="Logout" name="action"/>
+    </form>
+    <p><a href="Find2ContractsServlet">HOME PAGE</a></p>
+    <table>
+        <c:forEach var="contract" varStatus="counter" items="${requestScope.contractList}">
+            <c:set var="RID" value="${contract.getRID()}"></c:set>
+            <c:set var="SaID" value="${contract.getSaID()}"></c:set>
+            <c:set var="CID" value="${contract.getCID()}"></c:set>
+            <tr><td>${contract.toString()}</td></tr>
+            
+            <!--View Customer-->
+            <c:if test="${CID != 0}">
                 <tr>
-                    <td>Owner: </td>
+                    <td>Customer: </td>
                     <td>
-                        <form action="ViewOwnerProfileServlet">
-                            <input type="submit" value="${contract.getOName()}"/>
-                            <input type="hidden" value="viewOwnerProfile" name="action"/>
-                            <input type="hidden" value="${contract.getOID()}" name="OID"/>
+                        <form action="MainController">
+                            <input type="submit" value="${contract.getCName()}"/>
+                            <input type="hidden" value="viewCustomerProfile" name="action"/>
+                            <input type="hidden" value="${contract.getCID()}" name="CID"/>
                         </form>
                     </td>
                 </tr>
+            </c:if>
+
+            <!--View Owner-->
+            <tr>
+                <td>Owner: </td>
+                <td>
+                    <form action="MainController">
+                        <input type="submit" value="${contract.getOName()}"/>
+                        <input type="hidden" value="viewOwnerProfile" name="action"/>
+                        <input type="hidden" value="${contract.getOID()}" name="OID"/>
+                    </form>
+                </td>
+            </tr>
+            
+            <!--View Seller-->
+            <c:if test="${SaID != 0}">
                 <tr>
                     <td>Seller:</td>
                     <td>
@@ -39,8 +65,25 @@
                         </form>
                     </td>
                 </tr>
-            </c:forEach>
-        </table>
+            </c:if>
 
-    </body>
+            <!--View Resident-->
+            <c:if test="${RID != 0}">
+                <tr>
+                    <td>Resident:</td>
+                    <td>
+                        <form action="MainController">
+                            <input type="submit" value="${contract.getRname()}"/>
+                            <input type="hidden" value="viewResidentProfile" name="action"/>
+                            <input type="hidden" value="${contract.getRID()}" name="SID"/>
+                        </form>
+                    </td>
+                </tr>
+            </c:if>
+
+
+        </c:forEach>
+    </table>
+
+</body>
 </html>

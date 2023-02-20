@@ -2,6 +2,20 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/controller/ViewResidentProfileServlet.java</file>
+            <file>file:/D:/Study/SWP302/ver2/contractmanager/web/ContractPage.jsp</file>
+            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/controller/ViewSellerProfileServlet.java</file>
+            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/contract/ContractDTO.java</file>
+            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/resident/ResidentDAO.java</file>
+            <file>file:/D:/Study/SWP302/ver2/contractmanager/web/ChangePassword.jsp</file>
+            <file>file:/D:/Study/SWP302/ver2/contractmanager/web/Index.jsp</file>
+            <file>file:/D:/Study/SWP302/ver2/contractmanager/web/CustomerIndex.jsp</file>
+            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/controller/MainController.java</file>
+            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/utils/test.java</file>
+            <file>file:/D:/Study/SWP302/ver2/contractmanager/web/ViewProfile.jsp</file>
+            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/controller/ViewOwnerProfileServlet.java</file>
+            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/controller/LogoutServlet.java</file>
+        </group>
     </open-files>
 </project-private>

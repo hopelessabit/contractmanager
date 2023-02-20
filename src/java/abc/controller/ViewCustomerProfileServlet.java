@@ -5,18 +5,21 @@
  */
 package abc.controller;
 
+import abc.customer.CustomerDAO;
+import abc.customer.CustomerDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Admin
+ * @author mical
  */
-public class MainController extends HttpServlet {
+public class ViewCustomerProfileServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,49 +35,15 @@ public class MainController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-
-            String action = request.getParameter("action");
-            String url = "";
-            switch (action) {
-                case "login":
-                    url = "LoginServlet";
-                    break;
-                case "Create New Account":
-                    url = "RegistrationServlet";
-                    break;
-                case "Change password":
-                    url = "ChangePassServlet";
-                    break;
-                case "View Profile":
-                    url = "ViewSelfProfileServlet";
-                    break;
-                case "Find2contracts":
-                    url = "Find2ContractsServlet";
-                    break;
-                case "FindAllContracts":
-                    url = "FindAllContractsServlet";
-                    break;
-                case "Logout":
-                    url = "LogoutServlet";
-                    break;
-                case "View Contract":
-                    url = "ViewAllSelfContractServlet";
-                    break;
-                case "viewSellerProfile":
-                    url = "ViewSellerProfileServlet";
-                    break;
-                case "viewResidentProfile":
-                    url = "ViewResidentProfileServlet";
-                    break;
-                case "viewOwnerProfile":
-                    url = "ViewOwnerProfileServlet";
-                    break;
-                case "viewCustomerProfile":
-                    url = "ViewCustomerProfileServlet";
-                    break;
-
-            }
-            request.getRequestDispatcher(url).forward(request, response);
+            HttpSession session = request.getSession();
+            int CID = Integer.parseInt(request.getParameter("CID"));
+            CustomerDTO CProfile = CustomerDAO.searchAccount(CID);
+            request.setAttribute("viewProfile", CProfile);
+            request.setAttribute("edit", false);
+            request.setAttribute("profileType", "C");
+//            out.print(CProfile.toString());
+//            out.print("profile type : C");
+            request.getRequestDispatcher("ViewProfile.jsp").forward(request, response);
         }
     }
 

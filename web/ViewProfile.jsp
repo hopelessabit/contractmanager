@@ -13,8 +13,6 @@
         <title>${sessionScope.OProfile.getFullName()}Profile</title>
     </head>
     <body>
-        <h1>hello</h1>
-        <!--Truyen xuong userName, userID, userType, profileOwner-->
         <h1>Welcome, ${sessionScope.user.getFullName()}</h1>  
         <p><a href="MainController?action=Find2contracts">HOME PAGE</a></p>
         <c:set var="profileType" value="${requestScope.profileType}"></c:set>
@@ -35,16 +33,24 @@
                 <tr><td>Full name</td><td>${requestScope.viewProfile.getFullName()}</td></tr>
                 <tr><td>Email</td><td>${requestScope.viewProfile.getEmail()}</td></tr>
                 <c:if test="${profileType=='S'}">
-                    <tr><td>SID</td><td>${requestScope.viewProfile.getSaID()}</td></tr>
+                    <tr><td>Role</td><td>Seller</td></tr>
+                    <tr><td>ID</td><td>${requestScope.viewProfile.getSaID()}</td></tr>
+                    <tr><td>CID</td><td>${requestScope.viewProfile.getSCID()}</td></tr>
                 </c:if>
                 <c:if test="${profileType=='O'}">
-                    <tr><td>SID</td><td>${requestScope.viewProfile.getOID()}</td></tr>
+                    <tr><td>Role</td><td>Owner</td></tr>
+                    <tr><td>ID</td><td>${requestScope.viewProfile.getOID()}</td></tr>
+                    <tr><td>CID</td><td>${requestScope.viewProfile.getOCID()}</td></tr>
                 </c:if>
                 <c:if test="${profileType=='C'}">
-                    <tr><td>SID</td><td>${requestScope.viewProfile.getCID()}</td></tr>
+                    <tr><td>Role</td><td>Customer</td></tr>
+                    <tr><td>ID</td><td>${requestScope.viewProfile.getCID()}</td></tr>
+                    <tr><td>CID</td><td>${requestScope.viewProfile.getCCID()}</td></tr>
                 </c:if>
                 <c:if test="${profileType=='R'}">
-                    <tr><td>SID</td><td>${requestScope.viewProfile.getRID()}</td></tr>
+                    <tr><td>Role</td><td>Resident</td></tr>
+                    <tr><td>ID</td><td>${requestScope.viewProfile.getRID()}</td></tr>
+                    <tr><td>CID</td><td>${requestScope.viewProfile.getRCID()}</td></tr>
                 </c:if>
                 <tr><td>Date of birth</td><td>${requestScope.viewProfile.getDateOfBirth()}</td></td></tr>
                 <tr><td>Address</td><td>${requestScope.viewProfile.getAddress()}</td></tr>

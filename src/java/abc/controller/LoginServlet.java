@@ -19,7 +19,6 @@ import abc.seller.SellerDAO;
 import abc.seller.SellerDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -81,7 +80,7 @@ public class LoginServlet extends HttpServlet {
                         request.getRequestDispatcher(url).forward(request, response);
                     } else {
                         request.setAttribute("notification", "Account is not found");
-                        request.getRequestDispatcher("index.jsp").forward(request, response);
+                        request.getRequestDispatcher("Index.jsp").forward(request, response);
                     }
                     break;
                 case "Resident":
@@ -89,11 +88,11 @@ public class LoginServlet extends HttpServlet {
                     if (resident != null) {
                         s.setAttribute("user", resident);
                         s.setAttribute("userType", "R");
-                        url = "resident.jsp";
+                        url = "ResidentIndex.jsp";
                         request.getRequestDispatcher(url).forward(request, response);
                     } else {
                         request.setAttribute("notification", "Account is not found");
-                        request.getRequestDispatcher("index.jsp").forward(request, response);
+                        request.getRequestDispatcher("Index.jsp").forward(request, response);
                     }
                     break;
                 case "Seller":
@@ -105,7 +104,7 @@ public class LoginServlet extends HttpServlet {
                         request.getRequestDispatcher(url).forward(request, response);
                     } else {
                         request.setAttribute("notification", "Account is not found");
-                        request.getRequestDispatcher("index.jsp").forward(request, response);
+                        request.getRequestDispatcher("Index.jsp").forward(request, response);
                     }
                     break;
                 case "Admin":
@@ -117,7 +116,7 @@ public class LoginServlet extends HttpServlet {
                         request.getRequestDispatcher(url).forward(request, response);
                     } else {
                         request.setAttribute("notification", "Account is not found");
-                        request.getRequestDispatcher("index.jsp").forward(request, response);
+                        request.getRequestDispatcher("Index.jsp").forward(request, response);
 
                     }
                     break;
@@ -131,7 +130,7 @@ public class LoginServlet extends HttpServlet {
                         request.getRequestDispatcher(url).forward(request, response);
                     } else {
                         request.setAttribute("notification", "Account is not found");
-                        request.getRequestDispatcher("index.jsp").forward(request, response);
+                        request.getRequestDispatcher("Index.jsp").forward(request, response);
 
                     }
                     break;

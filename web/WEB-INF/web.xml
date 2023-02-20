@@ -40,6 +40,14 @@
         <servlet-name>ViewSellerProfileServlet</servlet-name>
         <servlet-class>abc.controller.ViewSellerProfileServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewResidentProfileServlet</servlet-name>
+        <servlet-class>abc.controller.ViewResidentProfileServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewCustomerProfileServlet</servlet-name>
+        <servlet-class>abc.controller.ViewCustomerProfileServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>
         <url-pattern>/MainController</url-pattern>
@@ -127,6 +135,14 @@
     <servlet-mapping>
         <servlet-name>ViewSellerProfileServlet</servlet-name>
         <url-pattern>/ViewSellerProfileServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewResidentProfileServlet</servlet-name>
+        <url-pattern>/ViewResidentProfileServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewCustomerProfileServlet</servlet-name>
+        <url-pattern>/ViewCustomerProfileServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

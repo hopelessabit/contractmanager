@@ -38,6 +38,26 @@ public class CustomerDAO {
         return customer;
 
     }
+    
+    public static CustomerDTO searchAccount(int ID) {
+        CustomerDTO customer = null;
+
+        try {
+            Connection cn = DBUtils.getConnection();
+            String sql = "Select * from Customer where CID = ?";
+            PreparedStatement pr = cn.prepareStatement(sql);
+            pr.setInt(1, ID);
+            ResultSet rs = pr.executeQuery();
+            if (rs.next()) {
+                customer = new CustomerDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getInt(10));
+            }
+            cn.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return customer;
+
+    }
 
     public static int insertAcc(String email, String password, String id) {
         int result = 0;

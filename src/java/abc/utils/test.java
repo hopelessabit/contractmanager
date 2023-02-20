@@ -7,6 +7,8 @@ package abc.utils;
 
 import abc.customer.CustomerDAO;
 import abc.customer.CustomerDTO;
+import abc.resident.ResidentDAO;
+import abc.resident.ResidentDTO;
 
 /**
  *
@@ -14,8 +16,8 @@ import abc.customer.CustomerDTO;
  */
 public class test {
     public static void main(String[] args) {
-        CustomerDTO user = new CustomerDTO();
-        user = CustomerDAO.getAccount("khachhanga@gmail.com", "123");
+        ResidentDTO user = new ResidentDTO();
+        user = ResidentDAO.searchResident(1);
         System.out.println(user.toString());
     }
 }
