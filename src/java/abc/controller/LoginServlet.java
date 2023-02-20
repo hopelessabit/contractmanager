@@ -127,11 +127,11 @@ public class LoginServlet extends HttpServlet {
                        s.setAttribute("user", boardManager);
                        s.setAttribute("userType", "B");
                         
-                        url = "boardManager.jsp";
+                        url = "BoardManagerIndex.jsp";
                         request.getRequestDispatcher(url).forward(request, response);
                     } else {
                         request.setAttribute("notification", "Account is not found");
-                        request.getRequestDispatcher("index.jsp").forward(request, response);
+                        request.getRequestDispatcher("Index.jsp").forward(request, response);
 
                     }
                     break;

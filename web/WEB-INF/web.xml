@@ -42,19 +42,19 @@
     </servlet>
     <servlet>
         <servlet-name>ViewAdminServlet</servlet-name>
-        <servlet-class>abc.controllers.ViewAdminServlet</servlet-class>
+        <servlet-class>abc.controller.ViewAdminServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>UpdateAdminServlet</servlet-name>
-        <servlet-class>abc.controllers.UpdateAdminServlet</servlet-class>
+        <servlet-class>abc.controller.UpdateAdminServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AddAdminServlet</servlet-name>
-        <servlet-class>abc.controllers.AddAdminServlet</servlet-class>
+        <servlet-class>abc.controller.AddAdminServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ViewContractServlet</servlet-name>
-        <servlet-class>abc.controllers.ViewContractServlet</servlet-class>
+        <servlet-class>abc.controller.ViewContractServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>

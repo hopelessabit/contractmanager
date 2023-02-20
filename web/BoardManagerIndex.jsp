@@ -4,11 +4,11 @@
     Author     : Admin
 --%>
 
-<%@page import="abc.contracts.ContractDAO"%>
-<%@page import="abc.contracts.ContractDTO"%>
-<%@page import="abc.boardmanagers.BoardManagerDTO"%>
-<%@page import="abc.admins.AdminDAO"%>
-<%@page import="abc.admins.AdminDTO"%>
+<%@page import="abc.contract.ContractDAO"%>
+<%@page import="abc.contract.ContractDTO"%>
+<%@page import="abc.boardmanager.BoardManagerDTO"%>
+<%@page import="abc.admin.AdminDAO"%>
+<%@page import="abc.admin.AdminDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -39,7 +39,7 @@
 
         </form>
         <% String keyWord = request.getParameter("keyWord");
-            String searchBy = request.getParameter("searchBy");
+            
             ArrayList<AdminDTO> adList;
 
             if (keyWord == null) {

@@ -36,7 +36,7 @@ public class MainController extends HttpServlet {
             String action = request.getParameter("action");
             String url = "";
             switch (action) {
-                case "login":
+                case "Login":
                     url = "LoginServlet";
                     break;
                 case "Create New Account":
@@ -62,6 +62,21 @@ public class MainController extends HttpServlet {
                     break;
                 case "viewSellerProfile":
                     url = "ViewSellerProfileServlet";
+                    break;
+                    case "ViewAdmin":
+                    url = "ViewAdminServlet";
+                    break;
+                case "Search Admin":
+                    url = "BoardManagerIndex.jsp";
+                    break;
+                case "Update Admin":
+                    url = "UpdateAdminServlet";
+                    break;
+                case "Add Admin":
+                    url = "AddAdminServlet";
+                    break;
+                case "ViewContract":
+                    url = "ViewContractServlet";
                     break;
 
             }
