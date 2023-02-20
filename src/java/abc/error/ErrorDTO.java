@@ -14,6 +14,7 @@ public class ErrorDTO {
    private String passwordErr;
    private String confirmErr;
    private String idErr;
+   private String phoneErr;
    private String existed;
 
     public ErrorDTO() {
@@ -25,6 +26,14 @@ public class ErrorDTO {
         this.confirmErr = confirmErr;
         this.idErr = idErr;
         this.existed = existed;
+    }
+
+    public String getPhoneErr() {
+        return phoneErr;
+    }
+
+    public void setPhoneErr(String phoneErr) {
+        this.phoneErr = phoneErr;
     }
 
     

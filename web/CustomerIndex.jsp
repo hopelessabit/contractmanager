@@ -17,7 +17,7 @@
     </head>
     <body>
         <h1>Welcome, ${sessionScope.user.getFullName()}</h1>
-        <!--Dung de view & edit profile -->s
+        <!--Dung de view & edit profile -->
         <form action="MainController" method="post">
             <input type="hidden" value="C" name="userTypeFromJsp"/>
             <input type="submit" value="View Profile" name="action"/>

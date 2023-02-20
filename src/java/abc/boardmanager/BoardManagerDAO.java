@@ -5,6 +5,7 @@
  */
 package abc.boardmanager;
 
+
 import abc.utils.DBUtils;
 import java.sql.Connection;
 import java.sql.Date;
@@ -28,7 +29,7 @@ public class BoardManagerDAO {
             pr.setString(2, password);
             ResultSet rs = pr.executeQuery();
             if (rs.next()) {
-               boardManager = new BoardManagerDTO( rs.getInt(1),  rs.getString(2),  rs.getString(3) );
+               boardManager = new BoardManagerDTO( rs.getInt(1),  rs.getString(2),  rs.getString(3),rs.getString(4));
                   
                   
             }
@@ -39,7 +40,7 @@ public class BoardManagerDAO {
         return boardManager;
     }
     public static void main(String[] args){
-    System.out.println(getAccount("nguoisohuu1@gmail.com","123"));
+    System.out.println(getAccount("hoidonga@gmail.com","123").getFullName());
 }
      
 }

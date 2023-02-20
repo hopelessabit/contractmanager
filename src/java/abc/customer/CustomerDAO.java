@@ -59,20 +59,24 @@ public class CustomerDAO {
 
     }
 
-    public static int insertAcc(String email, String password, String id) {
+    public static int insertAcc(String email, String password, String id,String phone, String name, String dob,String address) {
         int result = 0;
 
         try {
             Connection cn = DBUtils.getConnection();
-            String sql = "Insert into Customer(email, CCID, password, status) values(?,?,?,1)";
+            String sql = "Insert into Customer(email, CCID, password, status,phone,fullname,dateOfBirth,address1) values(?,?,?,1,?,?,?,?)";
             PreparedStatement pr = cn.prepareStatement(sql);
             pr.setString(1, email);
             pr.setString(2, id);
             pr.setString(3, password);
+            pr.setString(4, phone);
+            pr.setString(5, name);
+            pr.setString(6, dob);
+            pr.setString(7, address);
             result = pr.executeUpdate();
 
             cn.close();
-        } catch (Exception e) {
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
         return result;

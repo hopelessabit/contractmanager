@@ -27,11 +27,11 @@
                 <option value="Admin">Admin</option>             
                 <option value="BoardManager">Board Manager</option>             
             </select>
-            <input type="submit" value="login" name="action"/>
+            <input type="submit" value="Login" name="action"/>
         </form>
             <br/>
-            <a href="registration.jsp">Registration</a>
+            <a href="Registration.jsp">Registration</a>
             <br/>
-            <a href="changePassword.jsp">Change password</a>
+            <a href="ChangePassword.jsp">Change password</a>
     </body>
 </html>

@@ -18,7 +18,7 @@ import java.sql.SQLException;
     public static Connection getConnection() throws ClassNotFoundException, SQLException{
         Connection cn=null;
         String IP="localhost";
-        String instanceName="LAPTOP-EKO6VVAM";
+        String instanceName="LAPTOP-4GNDN8RS";
         String port="1433";
         String uid="sa";
         String pwd="12345";
