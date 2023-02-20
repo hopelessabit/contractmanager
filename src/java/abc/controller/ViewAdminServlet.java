@@ -5,8 +5,11 @@
  */
 package abc.controller;
 
+import abc.admin.AdminDAO;
+import abc.admin.AdminDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,9 +17,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author mical
+ * @author Admin
  */
-public class LogoutServlet extends HttpServlet {
+public class ViewAdminServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,7 +35,11 @@ public class LogoutServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            
+            String id = request.getParameter("id");
+            AdminDTO admin = AdminDAO.getAdminDetail(id);
+            request.setAttribute("admin", admin);
+            request.getRequestDispatcher("AdminDetail.jsp").forward(request, response);
+
         }
     }
 

@@ -18,10 +18,14 @@
             Password <input type="password" name="txtPassword" value=""/> ${ERROR.passwordErr}<br>
             Confirm <input type="password" name="txtConfirm" value=""/> ${ERROR.confirmErr}  <br>
             ID <input type="text" name="txtID" value="${param.txtID}"/>  ${ERROR.idErr}<br>
-            <input type="submit" value="Create New Account" name="action" />
+            Phone <input type="text" name="txtPhone" value="${param.txtPhone}"/>  ${ERROR.phoneErr}<br>
+            Full Name <input type="text" name="txtName" value="${param.txtName}" required=""/>  <br>
+            Date of birth <input type="date" name="txtDob" value="${param.txtDob}"required=""/> <br>
+            Address <input type="text" name="txtAddress" value="${param.txtAddress}" required=""/><br>
+            <input type="submit" value="Create New Account" name="action" /> 
             <input type="reset" value="Reset"/>
             ${ERROR.existed}           
         </form>
-        <a href="index.jsp">${requestScope.noti}</a>
+        <a href="Index.jsp">${requestScope.noti}</a>
     </body>
 </html>

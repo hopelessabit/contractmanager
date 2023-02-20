@@ -49,6 +49,18 @@ public class ContractDTO {
         this.createDate = createDate;
         this.endDate = endDate;
     }
+    ContractDTO(int CoID, String CName, String RName, String OName, String SName, int check, int fee, int total, Date createDate, Date endDate) {
+         this.CoID=CoID;
+         this.CName=CName;
+         this.RName=RName;
+         this.OName=OName;
+         this.Sname=SName;
+         this.check=check;
+         this.fee=fee;
+         this.total=total;
+         this.createDate=createDate;
+         this.endDate=endDate;
+    }
 
     public int getCoID() {
         return CoID;

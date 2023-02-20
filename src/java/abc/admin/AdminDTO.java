@@ -12,9 +12,11 @@ package abc.admin;
 public class AdminDTO {
     private int AID;
     private String email;   
+    private String ACID;   
     private String password;
     private String fullName;
     private String phoneNumber;      
+    private String avatar;      
     private String address;
     private int status;
 
@@ -25,6 +27,12 @@ public class AdminDTO {
         this.AID = AID;
     }
 
+    public AdminDTO(int AID, String fullName, int status) {
+        this.AID = AID;
+        this.fullName = fullName;
+        this.status = status;
+    }
+
     public AdminDTO(int AID, String email, String password, String fullName, String phoneNumber, String address, int status) {
         this.AID = AID;
         this.email = email;
@@ -33,6 +41,34 @@ public class AdminDTO {
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.status = status;
+    }
+
+    public AdminDTO(int AID, String email, String ACID, String password, String fullName, String phoneNumber, String avatar, String address, int status) {
+        this.AID = AID;
+        this.email = email;
+        this.ACID = ACID;
+        this.password = password;
+        this.fullName = fullName;
+        this.phoneNumber = phoneNumber;
+        this.avatar = avatar;
+        this.address = address;
+        this.status = status;
+    }
+
+    public String getACID() {
+        return ACID;
+    }
+
+    public void setACID(String ACID) {
+        this.ACID = ACID;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     public int getAID() {

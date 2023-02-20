@@ -5,8 +5,8 @@
  */
 package abc.controller;
 
-import abc.customer.CustomerDAO;
-import abc.error.ErrorDTO;
+import abc.contract.ContractDAO;
+import abc.contract.ContractDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Admin
  */
-public class RegistrationServlet extends HttpServlet {
+public class ViewContractServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,55 +34,13 @@ public class RegistrationServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String email = request.getParameter("txtEmail");
-            String passWord = request.getParameter("txtPassword");
-            String confirm = request.getParameter("txtConfirm");
-            String id = request.getParameter("txtID");
-            String phone = request.getParameter("txtPhone");
-            String name = request.getParameter("txtName");
-            String dob = request.getParameter("txtDob");
-            String address = request.getParameter("txtAddress");
-            int rs = 0;
-            boolean flag = false;
-            String regex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
-            ErrorDTO err = new ErrorDTO();
-            if (!email.matches(regex)) {
-                flag = true;
+            String id = request.getParameter("id");
 
-                err.setEmailErr("Email is in valid");
-            }
-            if (passWord.trim().length() < 6 || passWord.trim().length() > 30) {
-                flag = true;
+            ContractDTO contract = ContractDAO.getContractDetail(id);
+             
+            request.setAttribute("contract", contract);
+            request.getRequestDispatcher("ContractDetail.jsp").forward(request, response);
 
-                err.setPasswordErr("Requires 6-30 chars");
-            }
-            if (!passWord.equals(confirm)) {
-                flag = true;
-                err.setConfirmErr("Password is not matched");
-            }
-            if (id.trim().length() != 12) {
-                flag = true;
-                err.setIdErr("ID is invalid");
-            }
-            if (phone.length() < 10) {
-                flag = true;
-                err.setPhoneErr("Invalid");
-            }
-            if (!flag) {
-                rs = CustomerDAO.insertAcc(email, passWord, id, phone, name, dob, address);
-                if (rs > 0) {
-                    request.setAttribute("noti", "Successfully, click here to forward to login page");
-                    request.getRequestDispatcher("Registration.jsp").forward(request, response);
-                } else {
-
-                    err.setExisted("Email or id is already existed");
-                    request.setAttribute("ERROR", err);
-                    request.getRequestDispatcher("Registration.jsp").forward(request, response);
-                }
-            } else {
-                request.setAttribute("ERROR", err);
-                request.getRequestDispatcher("Registration.jsp").forward(request, response);
-            }
         }
     }
 
