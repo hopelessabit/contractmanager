@@ -40,6 +40,22 @@
         <servlet-name>ViewSellerProfileServlet</servlet-name>
         <servlet-class>abc.controller.ViewSellerProfileServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewAdminServlet</servlet-name>
+        <servlet-class>abc.controllers.ViewAdminServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateAdminServlet</servlet-name>
+        <servlet-class>abc.controllers.UpdateAdminServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddAdminServlet</servlet-name>
+        <servlet-class>abc.controllers.AddAdminServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewContractServlet</servlet-name>
+        <servlet-class>abc.controllers.ViewContractServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>
         <url-pattern>/MainController</url-pattern>
@@ -127,6 +143,22 @@
     <servlet-mapping>
         <servlet-name>ViewSellerProfileServlet</servlet-name>
         <url-pattern>/ViewSellerProfileServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewAdminServlet</servlet-name>
+        <url-pattern>/ViewAdminServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateAdminServlet</servlet-name>
+        <url-pattern>/UpdateAdminServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddAdminServlet</servlet-name>
+        <url-pattern>/AddAdminServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewContractServlet</servlet-name>
+        <url-pattern>/ViewContractServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
