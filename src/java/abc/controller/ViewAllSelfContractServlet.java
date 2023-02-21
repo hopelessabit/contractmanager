@@ -5,9 +5,14 @@
  */
 package abc.controller;
 
+import abc.admin.AdminDTO;
+import abc.boardmanager.BoardManagerDTO;
 import abc.contract.ContractDAO;
 import abc.contract.ContractDTO;
 import abc.customer.CustomerDTO;
+import abc.owner.OwnerDTO;
+import abc.resident.ResidentDTO;
+import abc.seller.SellerDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -37,13 +42,43 @@ public class ViewAllSelfContractServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+//            ArrayList<ContractDTO> list = new ArrayList<>();
             HttpSession session = request.getSession();
-//            out.print("hi");
+            Object user = new Object();
+            int userID = 0;
             char userType = ((String) session.getAttribute("userType")).charAt(0);
-            int userID = ((CustomerDTO) session.getAttribute("user")).getCID();
+            switch (userType) {
+                case 'C':
+                    user = (CustomerDTO) session.getAttribute("user");
+                    userID = ((CustomerDTO) user).getCID();
+                    break;
+                case 'O':
+                    user = (OwnerDTO) session.getAttribute("user");
+                    userID = ((OwnerDTO) user).getOID();
+                    break;
+                case 'B':
+                    user = (BoardManagerDTO) session.getAttribute("user");
+                    userID = ((BoardManagerDTO) user).getBID();
+                    break;
+                case 'A':
+                    user = (AdminDTO) session.getAttribute("user");
+                    userID = ((AdminDTO) user).getAID();
+                    break;
+                case 'R':
+                    user = (ResidentDTO) session.getAttribute("user");
+                    userID = ((ResidentDTO) user).getRID();
+                    break;
+                case 'S':
+                    user = (SellerDTO) session.getAttribute("user");
+                    userID = ((SellerDTO) user).getSaID();
+                    break;
+            }
             ArrayList<ContractDTO> list = ContractDAO.getContracts(userType, userID);
             request.setAttribute("contractList", list);
-//            out.print(list.size());
+//            out.println("<p>"+list.size()+"</p>");
+//            for (ContractDTO contract : list) {
+//                out.println(contract.toString());
+//            }
             request.getRequestDispatcher("ContractPage.jsp").forward(request, response);
 
         }

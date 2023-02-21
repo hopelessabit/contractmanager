@@ -3,17 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/controller/FindAllContractsServlet.java</file>
             <file>file:/D:/Study/SWP302/ver2/contractmanager/web/CustomerIndex.jsp</file>
             <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/controller/LogOutServlet.java</file>
-            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/controller/AddAdminServlet.java</file>
             <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/controller/MainController.java</file>
             <file>file:/D:/Study/SWP302/ver2/contractmanager/web/ContractPage.jsp</file>
-            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/utils/DBUtils.java</file>
             <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/controller/LoginServlet.java</file>
+            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/controller/ViewOwnerProfileServlet.java</file>
+            <file>file:/D:/Study/SWP302/ver2/contractmanager/web/ViewProfile.jsp</file>
             <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/controller/Find2ContractsServlet.java</file>
-            <file>file:/D:/Study/SWP302/ver2/contractmanager/web/WEB-INF/web.xml</file>
-            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/admin/AdminDAO.java</file>
-            <file>file:/D:/Study/SWP302/ver2/contractmanager/nbproject/build-impl.xml</file>
+            <file>file:/D:/Study/SWP302/ver2/contractmanager/web/OwnerIndex.jsp</file>
         </group>
     </open-files>
 </project-private>

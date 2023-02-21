@@ -42,6 +42,7 @@ public class FindAllContractsServlet extends HttpServlet {
             ArrayList<ContractDTO> LIST_CONTRACT = new ArrayList<>();
             LIST_CONTRACT = ContractDAO.getContracts(userType,userID);
             request.setAttribute("contractList", LIST_CONTRACT);
+            
             request.getRequestDispatcher("CustomerIndex.jsp").forward(request, response);
         }
     }

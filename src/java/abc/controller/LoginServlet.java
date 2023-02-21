@@ -76,7 +76,7 @@ public class LoginServlet extends HttpServlet {
                     if (owner != null) {
                         s.setAttribute("user", owner);
                         s.setAttribute("userType", "O");
-                        url = "owner.jsp";
+                        url = "MainController?action=Find2contracts";
                         request.getRequestDispatcher(url).forward(request, response);
                     } else {
                         request.setAttribute("notification", "Account is not found");
@@ -88,7 +88,7 @@ public class LoginServlet extends HttpServlet {
                     if (resident != null) {
                         s.setAttribute("user", resident);
                         s.setAttribute("userType", "R");
-                        url = "ResidentIndex.jsp";
+                        url = "MainController?action=Find2contracts";
                         request.getRequestDispatcher(url).forward(request, response);
                     } else {
                         request.setAttribute("notification", "Account is not found");
@@ -100,7 +100,7 @@ public class LoginServlet extends HttpServlet {
                     if (seller != null) {
                         s.setAttribute("user", seller);
                         s.setAttribute("userType", "S");
-                        url = "seller.jsp";
+                        url = "MainController?action=Find2contracts";
                         request.getRequestDispatcher(url).forward(request, response);
                     } else {
                         request.setAttribute("notification", "Account is not found");
@@ -112,7 +112,7 @@ public class LoginServlet extends HttpServlet {
                     if (admin != null) {
                         s.setAttribute("user", admin);
                         s.setAttribute("userType", "A");
-                        url = "admin.jsp";
+                        url = "MainController?action=Find2contracts";
                         request.getRequestDispatcher(url).forward(request, response);
                     } else {
                         request.setAttribute("notification", "Account is not found");
@@ -126,7 +126,7 @@ public class LoginServlet extends HttpServlet {
                        s.setAttribute("user", boardManager);
                        s.setAttribute("userType", "B");
                         
-                        url = "boardManager.jsp";
+                        url = "MainController?action=Find2contracts";
                         request.getRequestDispatcher(url).forward(request, response);
                     } else {
                         request.setAttribute("notification", "Account is not found");

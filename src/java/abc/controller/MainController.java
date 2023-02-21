@@ -55,7 +55,7 @@ public class MainController extends HttpServlet {
                     url = "FindAllContractsServlet";
                     break;
                 case "Logout":
-                    url = "LogoutServlet";
+                    url = "LogOutServlet";
                     break;
                 case "View Contract":
                     url = "ViewAllSelfContractServlet";

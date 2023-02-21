@@ -78,7 +78,6 @@ public class Find2ContractsServlet extends HttpServlet {
                     url = "SellerIndex.jsp";
                     userID = ((SellerDTO) user).getSaID();
                     break;
-
             }
             ArrayList<ContractDTO> listContract = new ArrayList<>();
             ArrayList<ContractDTO> allListContract = new ArrayList<>();
