@@ -126,7 +126,7 @@ public class LoginServlet extends HttpServlet {
                        s.setAttribute("user", boardManager);
                        s.setAttribute("userType", "B");
                         
-                        url = "boardManager.jsp";
+                        url = "BoardManagerIndex.jsp";
                         request.getRequestDispatcher(url).forward(request, response);
                     } else {
                         request.setAttribute("notification", "Account is not found");
