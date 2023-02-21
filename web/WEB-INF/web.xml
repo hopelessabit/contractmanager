@@ -41,14 +41,14 @@
         <servlet-class>abc.controller.ViewSellerProfileServlet</servlet-class>
     </servlet>
     <servlet>
-<<<<<<< HEAD
         <servlet-name>ViewResidentProfileServlet</servlet-name>
         <servlet-class>abc.controller.ViewResidentProfileServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ViewCustomerProfileServlet</servlet-name>
         <servlet-class>abc.controller.ViewCustomerProfileServlet</servlet-class>
-=======
+    </servlet>
+    <servlet>
         <servlet-name>ViewAdminServlet</servlet-name>
         <servlet-class>abc.controller.ViewAdminServlet</servlet-class>
     </servlet>
@@ -63,7 +63,6 @@
     <servlet>
         <servlet-name>ViewContractServlet</servlet-name>
         <servlet-class>abc.controller.ViewContractServlet</servlet-class>
->>>>>>> d2fc786692f4fb07e34bab01a473441f5c346ba6
     </servlet>
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>
@@ -154,14 +153,14 @@
         <url-pattern>/ViewSellerProfileServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-<<<<<<< HEAD
         <servlet-name>ViewResidentProfileServlet</servlet-name>
         <url-pattern>/ViewResidentProfileServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ViewCustomerProfileServlet</servlet-name>
         <url-pattern>/ViewCustomerProfileServlet</url-pattern>
-=======
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ViewAdminServlet</servlet-name>
         <url-pattern>/ViewAdminServlet</url-pattern>
     </servlet-mapping>
@@ -176,7 +175,6 @@
     <servlet-mapping>
         <servlet-name>ViewContractServlet</servlet-name>
         <url-pattern>/ViewContractServlet</url-pattern>
->>>>>>> d2fc786692f4fb07e34bab01a473441f5c346ba6
     </servlet-mapping>
     <session-config>
         <session-timeout>

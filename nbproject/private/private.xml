@@ -1,34 +1,19 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/controller/ViewResidentProfileServlet.java</file>
-            <file>file:/D:/Study/SWP302/ver2/contractmanager/web/ContractPage.jsp</file>
-            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/controller/ViewSellerProfileServlet.java</file>
-            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/contract/ContractDTO.java</file>
-            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/resident/ResidentDAO.java</file>
-            <file>file:/D:/Study/SWP302/ver2/contractmanager/web/ChangePassword.jsp</file>
-            <file>file:/D:/Study/SWP302/ver2/contractmanager/web/Index.jsp</file>
             <file>file:/D:/Study/SWP302/ver2/contractmanager/web/CustomerIndex.jsp</file>
+            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/controller/LogOutServlet.java</file>
+            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/controller/AddAdminServlet.java</file>
             <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/controller/MainController.java</file>
-            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/utils/test.java</file>
-            <file>file:/D:/Study/SWP302/ver2/contractmanager/web/ViewProfile.jsp</file>
-            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/controller/ViewOwnerProfileServlet.java</file>
-            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/controller/LogoutServlet.java</file>
+            <file>file:/D:/Study/SWP302/ver2/contractmanager/web/ContractPage.jsp</file>
+            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/utils/DBUtils.java</file>
+            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/controller/LoginServlet.java</file>
+            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/controller/Find2ContractsServlet.java</file>
+            <file>file:/D:/Study/SWP302/ver2/contractmanager/web/WEB-INF/web.xml</file>
+            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/admin/AdminDAO.java</file>
+            <file>file:/D:/Study/SWP302/ver2/contractmanager/nbproject/build-impl.xml</file>
         </group>
     </open-files>
 </project-private>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Admin/Documents/contractmanager/src/java/abc/contract/ContractDTO.java</file>
-            <file>file:/C:/Users/Admin/Documents/contractmanager/src/java/abc/contract/ContractDAO.java</file>
-        </group>
-    </open-files>
-</project-private>
->>>>>>> d2fc786692f4fb07e34bab01a473441f5c346ba6

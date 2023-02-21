@@ -82,9 +82,9 @@ public class AdminDAO {
         return list;
     }
 
-    public static void main(String[] args) {
-        System.out.println(getAdminList());
-    }
+//    public static void main(String[] args) {
+//        System.out.println(getAdminList());
+//    }
 
     public static AdminDTO getAdminDetail(String id) {
         AdminDTO admin = null;
