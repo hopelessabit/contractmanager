@@ -21,7 +21,7 @@ public class SellerDAO {
         SellerDTO seller=null;
         try {
             Connection cn = DBUtils.getConnection();
-            String sql = "Select * from Seller where email=? and password=? and status=1";
+            String sql = "Select * from Seller where email=? and password=? COLLATE SQL_Latin1_General_CP1_CS_AS and status=1";
             PreparedStatement pr = cn.prepareStatement(sql);
             pr.setString(1, email);
             pr.setString(2, password);

@@ -4,6 +4,7 @@
     Author     : Admin
 --%>
 
+<%@page import="abc.boardmanager.BoardManagerDTO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,8 +12,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Contract Detail</title>
     </head>
+    <% BoardManagerDTO bm = (BoardManagerDTO) session.getAttribute("user");
+
+        if (bm != null) {%>
     <body>
-            <table border="1">
+        <table border="1">
             <caption>Contract Detail</caption>
             <thead>
                 <tr>
@@ -44,7 +48,11 @@
                 </tr>
             </tbody>
         </table>  
-        
+
         <a href="BoardManagerIndex.jsp">Board Manager Page</a>
+        <%} else {%>
+        <h1>Access Denied</h1>
+        <a href="Index.jsp">Back to login page</a>
+        <%}%>
     </body>
 </html>
