@@ -67,10 +67,14 @@
 
                     %>
                     <tr>
-                        <td><%=admin.getAID()%></td>
+                        
+                <form action="MainController">
+                    <td><%=admin.getAID()%></td>
                         <td><%=admin.getFullName()%></td>
                         <td><%=admin.getStatus()%></td>
                         <td><a href="MainController?action=ViewAdmin&id=<%=admin.getAID()%>">View</a></td>
+                </form>
+                        
                     </tr>
                     <%}%>
                 </tbody>

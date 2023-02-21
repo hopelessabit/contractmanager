@@ -4,6 +4,7 @@
     Author     : Admin
 --%>
 
+<%@page import="abc.boardmanager.BoardManagerDTO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +13,9 @@
         <title>Admin Detail</title>
     </head>
     <body>
+        <% BoardManagerDTO bm = (BoardManagerDTO) session.getAttribute("user");
+
+            if (bm != null) {%> 
         <form action="MainController" method="POST">
             <table border="1">
                 <caption>Admin Detail</caption>
@@ -47,8 +51,13 @@
             </table>                                                                             
             <input type="submit" name="action" value="Update Admin"/>
         </form>
-           
+
         <a href="BoardManagerIndex.jsp">Board Manager Page</a>
         ${noti}
+        <%} else {%>
+        <h1>Access Denied</h1>
+        <a href="Index.jsp">Back to login page</a>
+        <%}%>
+
     </body>
 </html>
