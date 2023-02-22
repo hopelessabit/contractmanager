@@ -23,7 +23,12 @@
                     <tr><td>View Image: ${requestScope.viewProfile.getAvatar()}</td></tr>
                     <tr><td>Full name</td><td><input type="text" name="txtFullName"value="${requestScope.viewProfile.getFullName()}"/></td></tr>
                     <tr><td>Email</td> <td><input type="text" name="txtEmail" value="${requestScope.viewProfile.getEmail()}"/></td></tr>
-                    <tr><td>CID</td><td><input type="text" name="txtcid" value="${requestScope.viewProfile.getCCID()}"></td></tr>
+                    <c:if test="${(profileType == 'C')}">
+                        <tr><td>CID</td><td><input type="text" name="txtcid" value="${requestScope.viewProfile.getCCID()}"></td></tr>
+                    </c:if>
+                    <c:if test="${(profileType == 'O')}">
+                        <tr><td>CID</td><td><input type="text" name="txtcid" value="${requestScope.viewProfile.getOCID()}"></td></tr>
+                    </c:if>
                     <tr><td>Date of birth</td><td><input type="date" name="txtDate" value="${requestScope.viewProfile.getDateOfBirth()}"/></td></tr>
                     <tr><td>Address</td><td><input type="text" name="txtAddress" value="${requestScope.viewProfile.getAddress()}"/></td></tr>
                     <tr><td><input type="submit" name="action" value="Save Profile"/></td><td></td></tr>

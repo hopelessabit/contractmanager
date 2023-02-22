@@ -7,6 +7,8 @@ package abc.controller;
 
 import abc.customer.CustomerDTO;
 import abc.owner.OwnerDTO;
+import abc.resident.ResidentDTO;
+import abc.seller.SellerDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -37,24 +39,33 @@ public class ViewSelfProfileServlet extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             HttpSession session = request.getSession();
             Object viewProfile = new Object();
-            char userType = request.getParameter("userTypeFromJsp").charAt(0);
+            char userType = ((String) session.getAttribute("userType")).charAt(0);
+
 //            viewProfile = (OwnerDTO) session.getAttribute("user");
             switch (userType) {
                 case 'C':
                     viewProfile = (CustomerDTO) session.getAttribute("user");
+                    request.setAttribute("profileType", "C");
                     break;
                 case 'O':
                     viewProfile = (OwnerDTO) session.getAttribute("user");
+                    request.setAttribute("profileType", "O");
+                    break;
+                case 'S':
+                    viewProfile = (SellerDTO) session.getAttribute("user");
+                    request.setAttribute("profileType", "S");
+                    break;
+                case 'R':
+                    viewProfile = (ResidentDTO) session.getAttribute("user");
+                    request.setAttribute("profileType", "R");
                     break;
                 default:
                     out.print("Failed to get user type");
             }
             request.setAttribute("viewProfile", viewProfile);
             request.setAttribute("edit", true);
-            request.getRequestDispatcher("ViewProfile.jsp").forward(request, response);  
+            request.getRequestDispatcher("ViewProfile.jsp").forward(request, response);
 //    out.print(viewProfile.toString());
-    
-            
 
         }
     }

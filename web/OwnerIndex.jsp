@@ -12,10 +12,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Customer Index</title>
+        <title>Owner Index</title>
     </head>
     <body>
-        ${sessionScope.userType}
         <h1>Welcome, ${sessionScope.user.getFullName()}</h1>
         <!--Dung de view & edit profile -->
         <form action="MainController" method="post">

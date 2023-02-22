@@ -5,12 +5,17 @@
  */
 package abc.customer;
 
+import abc.owner.OwnerDAO;
+import abc.owner.OwnerDTO;
+
 /**
  *
  * @author mical
  */
 public class test {
     public static void main(String[] args) {
-        
+        OwnerDTO test = OwnerDAO.getAccount("chunhaa@gmail.com", "123");
+        System.out.println(test.toString());
+        System.out.println(test.getAvatar());
     }
 }

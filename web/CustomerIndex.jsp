@@ -45,6 +45,7 @@
         <!-- Dung de view 2 contracts-->
         <table>
             <c:forEach var="contract" varStatus="counter" items="${requestScope.contractList}">
+                <tr><td>${contract.getCoID()}</td></tr>
                 <tr><td>Contract's ID: ${contract.getCoID()}</td></tr>
                 <tr><td>${contract.toString()}</td></tr>
             </c:forEach>
