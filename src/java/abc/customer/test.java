@@ -5,8 +5,11 @@
  */
 package abc.customer;
 
-import abc.owner.OwnerDAO;
-import abc.owner.OwnerDTO;
+import abc.contract.ContractDAO;
+import abc.contract.ContractDTO;
+import abc.resident.ResidentDAO;
+import abc.resident.ResidentDTO;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,8 +17,12 @@ import abc.owner.OwnerDTO;
  */
 public class test {
     public static void main(String[] args) {
-        OwnerDTO test = OwnerDAO.getAccount("chunhaa@gmail.com", "123");
+        ResidentDTO test = ResidentDAO.getAccount("cudana@gmail.com", "123");
         System.out.println(test.toString());
         System.out.println(test.getAvatar());
+        ArrayList<ContractDTO> list = ContractDAO.get2Contracts('R', 1);
+        for (ContractDTO contractDTO : list) {
+            System.out.println(contractDTO.toString());
+        }
     }
 }

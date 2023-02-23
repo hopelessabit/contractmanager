@@ -18,6 +18,13 @@ import java.util.ArrayList;
  * @author mical
  */
 public class ContractDAO {
+    
+    public static void main(String[] args) {
+        ArrayList<ContractDTO> list = get2Contracts('R', 1);
+        for (ContractDTO contractDTO : list) {
+            System.out.println(contractDTO.toString());
+        }
+    }
 
     public static ArrayList<ContractDTO> getContracts(char userType, int id) {
         ArrayList<ContractDTO> result = new ArrayList<>();
@@ -33,16 +40,15 @@ public class ContractDAO {
                         + "left join [dbo].[Owner] on [dbo].[Contract].[OID] = [dbo].[Owner].[OID]\n"
                         + "left join [dbo].[Seller] on [dbo].[Contract].[SID] = [dbo].[Seller].[SID]\n"
                         + "left join [dbo].[Resident] on [dbo].[Contract].[RID] = [dbo].[Resident].[RID]\n";
-
                 if (userType == 'C') {
                     sql = sql + "where Contract.[CID]=?";
-                }
+                } else
                 if (userType == 'O') {
                     sql = sql + "where Contract.[OID]=?";
-                }
+                } else
                 if (userType == 'R') {
                     sql = sql + "where Contract.[RID]=?";
-                }
+                } else
                 if (userType == 'S') {
                     sql = sql + "where Contract.[SID]=?";
                 }
@@ -221,12 +227,6 @@ public class ContractDAO {
 
         }
         return result;
-    }
-
-    public static void main(String[] args) {
-        ContractDTO a = getContractDetail("5");
-        System.out.println(a);
-
     }
 
     public static ContractDTO getContractDetail(String id) {

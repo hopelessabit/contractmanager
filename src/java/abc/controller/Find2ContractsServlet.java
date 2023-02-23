@@ -84,10 +84,10 @@ public class Find2ContractsServlet extends HttpServlet {
             allListContract = ContractDAO.getContracts(userType, userID);
             if (allListContract.size() > 2) {
                 request.setAttribute("contractStats", 1); //contractStat = 1 : Co nhieu hon 2 contracts
-//                for (int i = 0; i < 2; i++) {
-//                    listContract.add(allListContract.get(i));
-//                }
-                listContract.add(allListContract.get(1));
+                for (int i = 0; i < 2; i++) {
+                    listContract.add(allListContract.get(i));
+                }
+//                listContract.add(allListContract.get(1));
             } else if (allListContract.size()>0){
                 request.setAttribute("contractStats", 0); //contractStat = 0: Co 1 contract
                 listContract=allListContract;

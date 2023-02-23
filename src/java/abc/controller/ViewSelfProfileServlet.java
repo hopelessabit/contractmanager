@@ -63,7 +63,7 @@ public class ViewSelfProfileServlet extends HttpServlet {
                     out.print("Failed to get user type");
             }
             request.setAttribute("viewProfile", viewProfile);
-            request.setAttribute("edit", true);
+            request.setAttribute("edit", "true");
             request.getRequestDispatcher("ViewProfile.jsp").forward(request, response);
 //    out.print(viewProfile.toString());
 

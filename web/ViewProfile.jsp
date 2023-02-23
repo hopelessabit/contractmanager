@@ -16,9 +16,9 @@
         <h1>Welcome, ${sessionScope.user.getFullName()}</h1>  
         <p><a href="MainController?action=Find2contracts">HOME PAGE</a></p>
         <c:set var="profileType" value="${requestScope.profileType}"></c:set>
-            <table>
-            <c:set var="edit" value="${requestScope.edit}"></c:set>
-            <c:if test="${edit == true}">
+        <c:set var="edit" value="${requestScope.edit}"></c:set>
+        <table>
+            <c:if test="${edit == "true"}">
                 <form action="editProfileServlet">
                     <tr><td>View Image: ${requestScope.viewProfile.getAvatar()}</td></tr>
                     <tr><td>Full name</td><td><input type="text" name="txtFullName"value="${requestScope.viewProfile.getFullName()}"/></td></tr>
@@ -29,12 +29,19 @@
                     <c:if test="${(profileType == 'O')}">
                         <tr><td>CID</td><td><input type="text" name="txtcid" value="${requestScope.viewProfile.getOCID()}"></td></tr>
                     </c:if>
+                        <c:if test="${(profileType == 'R')}">
+                        <tr><td>CID</td><td><input type="text" name="txtcid" value="${requestScope.viewProfile.getRCID()}"></td></tr>
+                    </c:if>
+                    <c:if test="${(profileType == 'S')}">
+                        <tr><td>CID</td><td><input type="text" name="txtcid" value="${requestScope.viewProfile.getOCID()}"></td></tr>
+                    </c:if>    
                     <tr><td>Date of birth</td><td><input type="date" name="txtDate" value="${requestScope.viewProfile.getDateOfBirth()}"/></td></tr>
                     <tr><td>Address</td><td><input type="text" name="txtAddress" value="${requestScope.viewProfile.getAddress()}"/></td></tr>
                     <tr><td><input type="submit" name="action" value="Save Profile"/></td><td></td></tr>
                 </form>
             </c:if>
-            <c:if test="${edit != true}">
+            <c:if test="${edit != "true"}">
+                <tr><td>View Image: </td><td>${requestScope.viewProfile.getAvatar()}</td></tr>
                 <tr><td>Full name</td><td>${requestScope.viewProfile.getFullName()}</td></tr>
                 <tr><td>Email</td><td>${requestScope.viewProfile.getEmail()}</td></tr>
                 <c:if test="${profileType=='S'}">
