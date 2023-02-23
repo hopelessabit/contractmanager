@@ -19,10 +19,30 @@ public class SellerDTO {
     private Date dateOfBirth;
     private String fullName;
     private String phoneNumber;
+    private String avatar;
     private String address;
     private int status;
 
     public SellerDTO() {
+    }
+
+    public SellerDTO(int SaID, String email, String SCID, String password, Date dateOfBirth, String fullName, String phoneNumber, String avatar, String address, int status) {
+        this.SaID = SaID;
+        this.email = email;
+        this.SCID = SCID;
+        this.password = password;
+        this.dateOfBirth = dateOfBirth;
+        this.fullName = fullName;
+        this.phoneNumber = phoneNumber;
+        this.avatar = avatar;
+        this.address = address;
+        this.status = status;
+    }
+
+    public SellerDTO(int SaID, String fullName, int status) {
+        this.SaID = SaID;
+        this.fullName = fullName;
+        this.status = status;
     }
 
     public SellerDTO(int SaID, String email, String SCID, String password, Date dateOfBirth, String fullName, String phoneNumber, String address, int status) {
@@ -35,6 +55,14 @@ public class SellerDTO {
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.status = status;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     public int getSaID() {

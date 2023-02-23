@@ -49,7 +49,7 @@ public class ChangePassServlet extends HttpServlet {
             String newPass = request.getParameter("newPasstxt");
             String confirm = request.getParameter("confirmPasstxt");
             String role = request.getParameter("role");
-            String url = "changePassword.jsp";
+            String url = "ChangePassword.jsp";
 
             ErrorDTO err = new ErrorDTO();
             boolean fault = false;

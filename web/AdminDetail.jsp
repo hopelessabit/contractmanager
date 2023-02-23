@@ -13,7 +13,7 @@
         <title>Admin Detail</title>
     </head>
     <body>
-        <% BoardManagerDTO bm = (BoardManagerDTO) session.getAttribute("user");
+        <% BoardManagerDTO bm = (BoardManagerDTO) session.getAttribute("boardManager");
 
             if (bm != null) {%> 
         <form action="MainController" method="POST">

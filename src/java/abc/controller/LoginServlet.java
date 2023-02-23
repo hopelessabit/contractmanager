@@ -110,9 +110,10 @@ public class LoginServlet extends HttpServlet {
                 case "Admin":
                     AdminDTO admin = AdminDAO.getAccount(email, password);
                     if (admin != null) {
-                        s.setAttribute("user", admin);
-                        s.setAttribute("userType", "A");
-                        url = "MainController?action=Find2contracts";
+                         
+                        s.setAttribute("admin", admin);
+                         
+                        url = "AdminIndex.jsp";
                         request.getRequestDispatcher(url).forward(request, response);
                     } else {
                         request.setAttribute("notification", "Account is not found");
@@ -123,10 +124,10 @@ public class LoginServlet extends HttpServlet {
                 case "BoardManager":
                        BoardManagerDTO boardManager = BoardManagerDAO.getAccount(email, password);
                     if (boardManager != null) {
-                       s.setAttribute("user", boardManager);
-                       s.setAttribute("userType", "B");
+                       s.setAttribute("boardManager", boardManager);
                         
-                        url = "MainController?action=Find2contracts";
+                        
+                        url = "BoardManagerIndex.jsp";
                         request.getRequestDispatcher(url).forward(request, response);
                     } else {
                         request.setAttribute("notification", "Account is not found");

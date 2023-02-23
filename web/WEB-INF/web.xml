@@ -68,6 +68,22 @@
         <servlet-name>NewServlet</servlet-name>
         <servlet-class>abc.controller.NewServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewUser</servlet-name>
+        <servlet-class>abc.controller.ViewUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateUserServlet</servlet-name>
+        <servlet-class>abc.controller.UpdateUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddUserServlet</servlet-name>
+        <servlet-class>abc.controller.AddUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateFeeServlet</servlet-name>
+        <servlet-class>abc.controller.UpdateFeeServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>
         <url-pattern>/MainController</url-pattern>
@@ -183,6 +199,22 @@
     <servlet-mapping>
         <servlet-name>NewServlet</servlet-name>
         <url-pattern>/NewServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewUser</servlet-name>
+        <url-pattern>/ViewUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateUserServlet</servlet-name>
+        <url-pattern>/UpdateUserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddUserServlet</servlet-name>
+        <url-pattern>/AddUserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateFeeServlet</servlet-name>
+        <url-pattern>/UpdateFeeServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

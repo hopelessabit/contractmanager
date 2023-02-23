@@ -19,8 +19,30 @@ public class OwnerDTO {
     private Date dateOfBirth;
     private String fullName;
     private String phoneNumber;
+    private String avatar;
     private String address;
     private int status;
+
+    public OwnerDTO(int OID, String email, String OCID, String password, Date dateOfBirth, String fullName, String phoneNumber, String avatar, String address, int status) {
+        this.OID = OID;
+        this.email = email;
+        this.OCID = OCID;
+        this.password = password;
+        this.dateOfBirth = dateOfBirth;
+        this.fullName = fullName;
+        this.phoneNumber = phoneNumber;
+        this.avatar = avatar;
+        this.address = address;
+        this.status = status;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
 
     public int getOID() {
         return OID;
@@ -95,6 +117,12 @@ public class OwnerDTO {
     }
 
     public OwnerDTO() {
+    }
+
+    public OwnerDTO(int OID, String fullName, int status) {
+        this.OID = OID;
+        this.fullName = fullName;
+        this.status = status;
     }
 
     public OwnerDTO(int OID, String email, String OCID, String password, Date dateOfBirth, String fullName, String phoneNumber, String address, int status) {

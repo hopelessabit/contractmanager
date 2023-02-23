@@ -19,8 +19,23 @@ public class ResidentDTO {
     private Date dateOfBirth;
     private String fullName;
     private String phoneNumber;
+    private String avatar;
+    
     private String address;
     private int status;
+
+    public ResidentDTO(int RID, String email, String RCID, String password, Date dateOfBirth, String fullName, String phoneNumber, String avatar, String address, int status) {
+        this.RID = RID;
+        this.email = email;
+        this.RCID = RCID;
+        this.password = password;
+        this.dateOfBirth = dateOfBirth;
+        this.fullName = fullName;
+        this.phoneNumber = phoneNumber;
+        this.avatar = avatar;
+        this.address = address;
+        this.status = status;
+    }
 
     public int getRID() {
         return RID;
@@ -94,6 +109,14 @@ public class ResidentDTO {
         this.status = status;
     }
 
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
     public ResidentDTO() {
     }
 
@@ -106,6 +129,12 @@ public class ResidentDTO {
         this.fullName = fullName;
         this.phoneNumber = phoneNumber;
         this.address = address;
+        this.status = status;
+    }
+
+    public ResidentDTO(int RID, String fullName, int status) {
+        this.RID = RID;
+        this.fullName = fullName;
         this.status = status;
     }
 

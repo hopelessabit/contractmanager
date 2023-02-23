@@ -1,11 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 package abc.controller;
 
-import abc.admin.AdminDAO;
+import abc.contract.ContractDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -17,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Admin
  */
-public class UpdateAdminServlet extends HttpServlet {
+public class UpdateFeeServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,25 +32,19 @@ public class UpdateAdminServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String id = request.getParameter("id");
-            String email = request.getParameter("email");
-            String cid = request.getParameter("cid");
-            String password = request.getParameter("password");
-            String name = request.getParameter("name");
-            String phone = request.getParameter("phone");
-            String address = request.getParameter("address");
-            int status = Integer.parseInt(request.getParameter("status"));
-            //out.println(id+email+cid+password+name+phone+avatar+address+" "+status);
-            int result = AdminDAO.updateAdmin(id, email, cid, password, name, phone, address, status);
-            if (result > 0) {
+             String id=request.getParameter("id");
+            int fee=Integer.parseInt(request.getParameter("fee"));
+             int total=Integer.parseInt(request.getParameter("total"));
+            int result=0;
+            result=ContractDAO.updateFee(fee,total,id);
+            if(result>0){
                 request.setAttribute("noti","Update successfully");
-                request.getRequestDispatcher("ViewAdminServlet?id="+id).forward(request, response);
-            }  else{
+                request.getRequestDispatcher("ViewContractServlet?id="+id).forward(request, response);
+            }else{
                 request.setAttribute("noti","Can not update");
-                request.getRequestDispatcher("ViewAdminServlet?id="+id).forward(request, response);
+                request.getRequestDispatcher("ViewContractServlet?id="+id).forward(request, response);
             }
         }
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

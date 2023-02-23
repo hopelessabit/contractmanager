@@ -18,11 +18,11 @@
         <title>Board Manager</title>
     </head>
     <body>  
-        <% BoardManagerDTO bm = (BoardManagerDTO) session.getAttribute("user");
+        <% BoardManagerDTO bm = (BoardManagerDTO) session.getAttribute("boardManager");
 
             if (bm != null) {%>
 
-        <h1>Welcome, ${sessionScope.user.fullName}</h1>
+        <h1>Welcome, ${sessionScope.boardManager.fullName}</h1>
         <form action="MainController" method="POST">
             <input type="submit" value="Log out" name="action" />
         </form>

@@ -5,7 +5,14 @@
  */
 package abc.controller;
 
-import abc.admin.AdminDAO;
+import abc.customer.CustomerDAO;
+import abc.customer.CustomerDTO;
+import abc.owner.OwnerDAO;
+import abc.owner.OwnerDTO;
+import abc.resident.ResidentDAO;
+import abc.resident.ResidentDTO;
+import abc.seller.SellerDAO;
+import abc.seller.SellerDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -17,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Admin
  */
-public class UpdateAdminServlet extends HttpServlet {
+public class ViewUser extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,24 +41,31 @@ public class UpdateAdminServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             String id = request.getParameter("id");
-            String email = request.getParameter("email");
-            String cid = request.getParameter("cid");
-            String password = request.getParameter("password");
-            String name = request.getParameter("name");
-            String phone = request.getParameter("phone");
-            String address = request.getParameter("address");
-            int status = Integer.parseInt(request.getParameter("status"));
-            //out.println(id+email+cid+password+name+phone+avatar+address+" "+status);
-            int result = AdminDAO.updateAdmin(id, email, cid, password, name, phone, address, status);
-            if (result > 0) {
-                request.setAttribute("noti","Update successfully");
-                request.getRequestDispatcher("ViewAdminServlet?id="+id).forward(request, response);
-            }  else{
-                request.setAttribute("noti","Can not update");
-                request.getRequestDispatcher("ViewAdminServlet?id="+id).forward(request, response);
+            String role = request.getParameter("role");
+            switch (role) {
+                case "customer":
+                    CustomerDTO customer = CustomerDAO.getCustomerDetail(id);
+                    request.setAttribute("customerDetail", customer);
+                    request.setAttribute("role", role);
+                    break;
+                case "owner":
+                    OwnerDTO owner = OwnerDAO.getOwnerDetail(id);
+                    request.setAttribute("ownerDetail",owner);
+                    request.setAttribute("role", role);
+                    break;
+                case "resident":
+                    ResidentDTO resident = ResidentDAO.getResidentDetail(id);
+                    request.setAttribute("residentDetail", resident);
+                    request.setAttribute("role", role);
+                    break;
+                case "seller":
+                    SellerDTO seller = SellerDAO.getSellerDetail(id);
+                    request.setAttribute("sellerDetail", seller);
+                    request.setAttribute("role", role);
+                    break;
             }
+                request.getRequestDispatcher("UserDetail.jsp").forward(request, response);
         }
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

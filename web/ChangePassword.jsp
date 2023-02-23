@@ -24,10 +24,23 @@
             Old Password <input type="password" name="oldPasstxt" required/> <br> 
             New Password <input type="password" name="newPasstxt"/> ${err.passwordErr} <br> 
             Confirm Password <input type="password" name="confirmPasstxt"/> ${err.confirmErr}  <br>  
-            <input type="submit" name="action" value="Change password"/> 
+            <input type="submit" name="action" value="Change password" onclick="confirmComplete()"/> 
 
             ${requestScope.noti}
             <a href="index.jsp">${requestScope.successfully}</a>
         </form>
+        <script>
+            function confirmComplete() {
+
+                var answer = confirm("Are you sure ?");
+                if (answer === true)
+                {
+                    return true;
+                } else
+                {
+                    return false;
+                }
+            }
+        </script>
     </body>
 </html>

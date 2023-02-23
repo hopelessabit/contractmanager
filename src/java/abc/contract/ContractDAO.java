@@ -266,4 +266,24 @@ public class ContractDAO {
 
         return contract;
     }
+
+    public static int updateFee(int fee, int total, String id) {
+         Connection cn = null;
+         int rs=0;
+         try{ 
+             cn=DBUtils.getConnection();
+             if(cn!=null){
+                 String sql="update ContractInformation set fee=?,total=? where CoID=?";
+                 PreparedStatement pr=cn.prepareStatement(sql);
+                 pr.setInt(1,fee);
+                 pr.setInt(2,total);
+                 pr.setString(3,id);
+                 rs=pr.executeUpdate();
+             }
+             
+         }catch(ClassNotFoundException | SQLException e){
+            e.printStackTrace();
+         }
+         return rs;
+    }
 }
