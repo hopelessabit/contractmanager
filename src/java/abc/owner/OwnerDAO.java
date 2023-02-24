@@ -28,7 +28,7 @@ public class OwnerDAO {
             pr.setString(2, password);
             ResultSet rs = pr.executeQuery();
             if (rs.next()) {
-                owner = new OwnerDTO( rs.getInt(1),  rs.getString(2),  rs.getString(3),  rs.getString(4),  rs.getDate(5), rs.getString(6),  rs.getString(7),   rs.getString(9),  rs.getInt(10));
+                owner = new OwnerDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getInt(10));
             }
             cn.close();
         } catch (ClassNotFoundException | SQLException e) {
@@ -56,42 +56,21 @@ public class OwnerDAO {
 
     }
      public static OwnerDTO searchOwner(int OID) {
-        OwnerDTO result = null;
-        Connection cn = null;
-        try {
-            cn = abc.utils.DBUtils.getConnection();
-            if (cn != null) {
-                String sql = "SELECT[OID] ,[email],[OCID],[password],[dateOfBirth],[fullname],[phone],[avartar],[address1],[status]\n"
-                        + "FROM [ContractManager].[dbo].[Owner]\n"
-                        + "WHERE [Owner].[OID] = ?";
-                PreparedStatement pst = cn.prepareStatement(sql);
-                pst.setInt(1, OID);
-                ResultSet rs = pst.executeQuery();
-                if (rs != null && rs.next()) {
-                    String email = rs.getString("email");
-                    String OCID = rs.getString("OCID");
-                    String password = rs.getString("password");
-                    Date dateOfBirth = rs.getDate("dateOfBirth");
-                    String fullName = rs.getString("fullName"); 
-                    String phoneNumber = rs.getString("phone");
-                    String address = rs.getString("address1");
-                    int status = rs.getInt("status");
-                    result = new OwnerDTO(OID, email, OCID, password, dateOfBirth, fullName, phoneNumber, address, status);
-                }
+        OwnerDTO owner=null;
+        try{
+            Connection cn = DBUtils.getConnection();
+            String sql = "Select * from Owner where OID = ?";
+            PreparedStatement pr = cn.prepareStatement(sql);
+            pr.setInt(1, OID);
+            ResultSet rs = pr.executeQuery();
+            if (rs.next()) {
+                owner = new OwnerDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getInt(10));
             }
             cn.close();
-        } catch (Exception e) {
-            e.getCause();
-        } finally {
-            if (cn != null) {
-                try {
-                    cn.close();
-                } catch (Exception e) {
-                }
-            }
-
+        }catch(Exception e){
+            e.printStackTrace();
         }
-        return result;
+        return owner;
     }
      public static ArrayList getOwnerList() {
         ArrayList<OwnerDTO> list = new ArrayList();

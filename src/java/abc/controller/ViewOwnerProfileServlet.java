@@ -36,10 +36,8 @@ public class ViewOwnerProfileServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            char oType = 'O';
             HttpSession session = request.getSession();
             int OID = Integer.parseInt(request.getParameter("OID"));
-            String userName = ((CustomerDTO) session.getAttribute("user")).getFullName();
             OwnerDTO OProfile = OwnerDAO.searchOwner(OID);
             request.setAttribute("viewProfile", OProfile);
             request.setAttribute("profileType", "O");

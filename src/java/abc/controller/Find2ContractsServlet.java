@@ -87,6 +87,7 @@ public class Find2ContractsServlet extends HttpServlet {
                 for (int i = 0; i < 2; i++) {
                     listContract.add(allListContract.get(i));
                 }
+//                listContract.add(allListContract.get(1));
             } else if (allListContract.size()>0){
                 request.setAttribute("contractStats", 0); //contractStat = 0: Co 1 contract
                 listContract=allListContract;
@@ -94,7 +95,7 @@ public class Find2ContractsServlet extends HttpServlet {
 
             request.setAttribute("contractList", listContract);
 
-            request.getRequestDispatcher("CustomerIndex.jsp").forward(request, response);
+            request.getRequestDispatcher(url).forward(request, response);
         }
     }
 

@@ -1,16 +1,16 @@
 <%-- 
-    Document   : OwnerIndex
-    Created on : Feb 21, 2023, 10:39:31 AM
+    Document   : ResidentIndex
+    Created on : Feb 23, 2023, 12:34:28 AM
     Author     : mical
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Owner Index</title>
+        <title>Resident Index</title>
     </head>
     <body>
         <h1>Welcome, ${sessionScope.user.getFullName()}</h1>
@@ -29,6 +29,7 @@
         <form action="MainController" method="post">
             <input type="submit" name="action" value="View Contract"/>
         </form>
+
         <table>
             <c:set var="contractStats" value="${requestScope.contractStats}"></c:set>
                 <!--ContractStats = 1 : Co nhieu hon 2 contracts-->
@@ -67,5 +68,3 @@
         </table>
     </body>
 </html>
-
-
