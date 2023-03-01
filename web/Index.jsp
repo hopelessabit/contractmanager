@@ -23,7 +23,7 @@
         </form>
             <br/>
             <a href="Registration.jsp">Registration</a>
-             
+             <a href="ForgotPassWord.jsp">Forgot password</a>
              
     </body>
 </html>

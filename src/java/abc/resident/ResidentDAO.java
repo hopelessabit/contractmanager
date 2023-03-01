@@ -36,6 +36,24 @@ public class ResidentDAO {
         }
         return resident;
     }
+    public static ResidentDTO getAccount(String email ) {
+        ResidentDTO resident=null;
+        try {
+            Connection cn = DBUtils.getConnection();
+            String sql = "Select * from Resident where email=? and  status=1";
+            PreparedStatement pr = cn.prepareStatement(sql);
+            pr.setString(1, email);
+             
+            ResultSet rs = pr.executeQuery();
+            if (rs.next()) {
+                resident = new ResidentDTO( rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getInt(10));
+            }
+            cn.close();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return resident;
+    }
     public static ResidentDTO searchResident(int RID) {
         ResidentDTO resident=null;
         try {

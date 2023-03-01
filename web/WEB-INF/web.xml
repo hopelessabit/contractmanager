@@ -92,6 +92,10 @@
         <servlet-name>ChangePassLoggedInServlet</servlet-name>
         <servlet-class>abc.controller.ChangePassLoggedInServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ForgotPasswordServlet</servlet-name>
+        <servlet-class>abc.controller.ForgotPasswordServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>
         <url-pattern>/MainController</url-pattern>
@@ -231,6 +235,10 @@
     <servlet-mapping>
         <servlet-name>ChangePassLoggedInServlet</servlet-name>
         <url-pattern>/ChangePassLoggedInServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ForgotPasswordServlet</servlet-name>
+        <url-pattern>/ForgotPasswordServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
