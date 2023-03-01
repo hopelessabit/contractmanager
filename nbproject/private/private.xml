@@ -3,17 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/Admin/Documents/contractmanager/web/UserDetail.jsp</file>
-            <file>file:/C:/Users/Admin/Documents/contractmanager/web/BoardManagerIndex.jsp</file>
-            <file>file:/C:/Users/Admin/Documents/contractmanager/src/java/abc/controller/MainController.java</file>
-            <file>file:/C:/Users/Admin/Documents/contractmanager/web/ContractDetail.jsp</file>
-            <file>file:/C:/Users/Admin/Documents/contractmanager/src/java/abc/controller/AddUserServlet.java</file>
-=======
-            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/contract/ContractDAO.java</file>
-            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/controller/LoginServlet.java</file>
-            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/controller/Find2ContractsServlet.java</file>
->>>>>>> 7e02f11adce7c70b80dc7a71581aa7835b884cdf
+            <file>file:/C:/Users/Admin/Documents/contractmanager/src/java/abc/admin/AdminDAO.java</file>
+            <file>file:/C:/Users/Admin/Documents/contractmanager/src/java/abc/contract/ContractDTO.java</file>
+            <file>file:/C:/Users/Admin/Documents/contractmanager/src/java/abc/report/ReportDAO.java</file>
+            <file>file:/C:/Users/Admin/Documents/contractmanager/src/java/abc/controller/LoginServlet.java</file>
+            <file>file:/C:/Users/Admin/Documents/contractmanager/web/AdminIndex.jsp</file>
+            <file>file:/C:/Users/Admin/Documents/contractmanager/src/java/abc/report/ReportDTO.java</file>
         </group>
     </open-files>
 </project-private>

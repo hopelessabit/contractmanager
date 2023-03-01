@@ -84,6 +84,10 @@
         <servlet-name>UpdateFeeServlet</servlet-name>
         <servlet-class>abc.controller.UpdateFeeServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ForgotPasswordServlet</servlet-name>
+        <servlet-class>abc.controller.ForgotPasswordServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>
         <url-pattern>/MainController</url-pattern>
@@ -215,6 +219,10 @@
     <servlet-mapping>
         <servlet-name>UpdateFeeServlet</servlet-name>
         <url-pattern>/UpdateFeeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ForgotPasswordServlet</servlet-name>
+        <url-pattern>/ForgotPasswordServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

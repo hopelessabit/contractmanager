@@ -39,7 +39,24 @@ public class AdminDAO {
         }
         return admin;
     }
-
+public static AdminDTO getAccount(String email) {
+        AdminDTO admin = null;
+        try {
+            Connection cn = DBUtils.getConnection();
+            String sql = "Select * from Admin where email=? and status=1";
+            PreparedStatement pr = cn.prepareStatement(sql);
+            pr.setString(1, email);
+            
+            ResultSet rs = pr.executeQuery();
+            if (rs.next()) {
+                admin = new AdminDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9));
+            }
+            cn.close();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return admin;
+    }
     public static ArrayList getAdminList() {
         ArrayList<AdminDTO> list = new ArrayList();
         try {

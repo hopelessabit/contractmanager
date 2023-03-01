@@ -102,6 +102,8 @@ public class MainController extends HttpServlet {
                 case "Update Fee":
                     url = "UpdateFeeServlet";
                     break;
+                case"Forgot password":
+                url="ForgotPasswordServlet";
             }
             request.getRequestDispatcher(url).forward(request, response);
         }
