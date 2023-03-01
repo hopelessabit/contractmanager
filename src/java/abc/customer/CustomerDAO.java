@@ -38,7 +38,7 @@ public class CustomerDAO {
         return customer;
 
     }
-    
+
     public static CustomerDTO searchAccount(int ID) {
         CustomerDTO customer = null;
 
@@ -59,7 +59,7 @@ public class CustomerDAO {
 
     }
 
-    public static int insertAcc(String email, String password, String id,String phone, String name, String dob,String address) {
+    public static int insertAcc(String email, String password, String id, String phone, String name, String dob, String address) {
         int result = 0;
 
         try {
@@ -82,16 +82,14 @@ public class CustomerDAO {
         return result;
 
     }
-    
-    
-    public static int changePass(String newPass,String email) {
-        int result = 0;
 
+    public static int changePass(String newPass, String email) {
+        int result = 0;
         try {
             Connection cn = DBUtils.getConnection();
             String sql = "update Customer set password=? where email=?";
             PreparedStatement pr = cn.prepareStatement(sql);
-             
+
             pr.setString(1, newPass);
             pr.setString(2, email);
             result = pr.executeUpdate();
@@ -101,10 +99,30 @@ public class CustomerDAO {
             e.printStackTrace();
         }
         return result;
-
     }
+
+    public static int updateProfile(String name, Date dob, String address, String CCID, int CID) {
+        int result = 0;
+        try {
+            Connection cn = DBUtils.getConnection();
+            String sql = "update Customer set fullname=?, dateOfBirth=?, address1=?, CCID=? where CID=?";
+            PreparedStatement pr = cn.prepareStatement(sql);
+            pr.setString(1, name);
+            pr.setDate(2, dob);
+            pr.setString(3, address);
+            pr.setString(4, CCID);
+            pr.setInt(5, CID);
+            result = pr.executeUpdate();
+            cn.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
 //         System.out.println(changePass("1111111","h@gmail.com"));
-        System.out.println(getAccount("khachhanga@gmail.com","123"));
+        updateProfile("Tran Van Ne", new Date(2000, 11, 12), "65 Nguyen Xien", "123111222333", 1);
+        System.out.println(getAccount("khachhanga@gmail.com", "123"));
     }
 }

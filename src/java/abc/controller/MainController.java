@@ -87,7 +87,9 @@ public class MainController extends HttpServlet {
                 case "viewCustomerProfile":
                     url = "ViewCustomerProfileServlet";
                     break;
-
+                case "Save Profile":
+                    url = "SaveProfileServlet";
+                    break;
             }
             request.getRequestDispatcher(url).forward(request, response);
         }
