@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             String email = request.getParameter("emailtxt");
             String password = request.getParameter("passwordtxt");
-            String role = request.getParameter("role");
+             
             HttpSession s = request.getSession(false);
             String url = "";
 //            out.print("hi");
@@ -57,85 +57,44 @@ public class LoginServlet extends HttpServlet {
 //            out.print(user.toString());
             
             
-            switch (role) {
-                case "Customer":
-                    CustomerDTO customer = CustomerDAO.getAccount(email, password);
-                     
-                    if (customer != null) {
-                        s.setAttribute("user", customer);
-                        s.setAttribute("userType", "C");
-                        url = "MainController?action=Find2contracts";
-                        request.getRequestDispatcher(url).forward(request, response);
-                    } else {
-                        request.setAttribute("notification", "Account is not found");
-                        request.getRequestDispatcher("Index.jsp").forward(request, response);
-                    }
-                    break;
-                case "Owner":
-                    OwnerDTO owner = OwnerDAO.getAccount(email, password);
-                    if (owner != null) {
-                        s.setAttribute("user", owner);
-                        s.setAttribute("userType", "O");
-                        url = "MainController?action=Find2contracts";
-                        request.getRequestDispatcher(url).forward(request, response);
-                    } else {
-                        request.setAttribute("notification", "Account is not found");
-                        request.getRequestDispatcher("Index.jsp").forward(request, response);
-                    }
-                    break;
-                case "Resident":
-                    ResidentDTO resident = ResidentDAO.getAccount(email, password);
-                    if (resident != null) {
-                        s.setAttribute("user", resident);
-                        s.setAttribute("userType", "R");
-                        url = "MainController?action=Find2contracts";
-                        request.getRequestDispatcher(url).forward(request, response);
-                    } else {
-                        request.setAttribute("notification", "Account is not found");
-                        request.getRequestDispatcher("Index.jsp").forward(request, response);
-                    }
-                    break;
-                case "Seller":
-                    SellerDTO seller = SellerDAO.getAccount(email, password);
-                    if (seller != null) {
-                        s.setAttribute("user", seller);
-                        s.setAttribute("userType", "S");
-                        url = "MainController?action=Find2contracts";
-                        request.getRequestDispatcher(url).forward(request, response);
-                    } else {
-                        request.setAttribute("notification", "Account is not found");
-                        request.getRequestDispatcher("Index.jsp").forward(request, response);
-                    }
-                    break;
-                case "Admin":
-                    AdminDTO admin = AdminDAO.getAccount(email, password);
-                    if (admin != null) {
-                         
-                        s.setAttribute("admin", admin);
-                         
-                        url = "AdminIndex.jsp";
-                        request.getRequestDispatcher(url).forward(request, response);
-                    } else {
-                        request.setAttribute("notification", "Account is not found");
-                        request.getRequestDispatcher("Index.jsp").forward(request, response);
+            CustomerDTO customer = CustomerDAO.getAccount(email, password);
+            OwnerDTO owner = OwnerDAO.getAccount(email, password);
+            ResidentDTO resident = ResidentDAO.getAccount(email, password);
+            SellerDTO seller = SellerDAO.getAccount(email, password);
+            AdminDTO admin = AdminDAO.getAccount(email, password);
+            BoardManagerDTO boardManager = BoardManagerDAO.getAccount(email, password);
 
-                    }
-                    break;
-                case "BoardManager":
-                       BoardManagerDTO boardManager = BoardManagerDAO.getAccount(email, password);
-                    if (boardManager != null) {
-                       s.setAttribute("boardManager", boardManager);
-                        
-                        
-                        url = "BoardManagerIndex.jsp";
-                        request.getRequestDispatcher(url).forward(request, response);
-                    } else {
-                        request.setAttribute("notification", "Account is not found");
-                        request.getRequestDispatcher("Index.jsp").forward(request, response);
-
-                    }
-                    break;
-                   
+            if (customer != null) {
+                s.setAttribute("user", customer);
+                s.setAttribute("userType", "C");
+                url = "CustomerIndex.jsp";
+                request.getRequestDispatcher(url).forward(request, response);
+            } else if (owner != null) {
+                s.setAttribute("user", owner);
+                s.setAttribute("userType", "O");
+                url = "OwnerIndex.jsp";
+                request.getRequestDispatcher(url).forward(request, response);
+            }  else if (resident != null) {
+                s.setAttribute("user", resident);
+                s.setAttribute("userType", "R");
+                url = "ResidentIndex.jsp";
+                request.getRequestDispatcher(url).forward(request, response);
+            } else if (seller != null) {
+                s.setAttribute("user", seller);
+                s.setAttribute("userType", "S");
+                url = "SellerIndex.jsp";
+                request.getRequestDispatcher(url).forward(request, response);
+            } else if (admin != null) {
+                s.setAttribute("admin", admin);                
+                url = "AdminIndex.jsp";
+                request.getRequestDispatcher(url).forward(request, response);
+            } else if (boardManager != null) {
+                s.setAttribute("boardManager", boardManager);               
+                url = "BoardManagerIndex.jsp";
+                request.getRequestDispatcher(url).forward(request, response);
+            } else {
+                request.setAttribute("notification", "Account is not found");
+                request.getRequestDispatcher("Index.jsp").forward(request, response);
             }
         }
     }

@@ -18,20 +18,12 @@
             <br/>
             Password <input type="password" name="passwordtxt"/>
             <br/>
-            Login as:
-            <select name="role">               
-                <option value="Customer">Customer</option>
-                <option value="Owner">Owner</option>
-                <option value="Resident">Resident</option>
-                <option value="Seller">Seller</option>             
-                <option value="Admin">Admin</option>             
-                <option value="BoardManager">Board Manager</option>             
-            </select>
+             
             <input type="submit" value="Login" name="action"/>
         </form>
             <br/>
             <a href="Registration.jsp">Registration</a>
-            <br/>
-            <a href="ChangePassword.jsp">Change password</a>
+             
+             
     </body>
 </html>
