@@ -45,27 +45,60 @@ public class ViewSelfProfileServlet extends HttpServlet {
             switch (userType) {
                 case 'C':
                     viewProfile = (CustomerDTO) session.getAttribute("user");
+                    if(null == request.getAttribute("txtFullName"))
+                    request.setAttribute("txtFullName", ((CustomerDTO) viewProfile).getFullName());
+                    if(null == request.getAttribute("txtcid"))
+                    request.setAttribute("txtcid", ((CustomerDTO) viewProfile).getCCID());
+                    if(null == request.getAttribute("txtDate"))
+                    request.setAttribute("txtDate", ((CustomerDTO) viewProfile).getDateOfBirth());
+                    if(null == request.getAttribute("address"))
+                    request.setAttribute("address", ((CustomerDTO) viewProfile).getAddress());
                     request.setAttribute("profileType", "C");
                     break;
                 case 'O':
                     viewProfile = (OwnerDTO) session.getAttribute("user");
+                    if(null == request.getAttribute("txtFullName"))
+                    request.setAttribute("txtFullName", ((OwnerDTO) viewProfile).getFullName());
+                    if(null == request.getAttribute("txtcid"))
+                    request.setAttribute("txtcid", ((OwnerDTO) viewProfile).getOCID());
+                    if(null == request.getAttribute("txtDate"))
+                    request.setAttribute("txtDate", ((OwnerDTO) viewProfile).getDateOfBirth());
+                    if(null == request.getAttribute("address"))
+                    request.setAttribute("address", ((OwnerDTO) viewProfile).getAddress());
                     request.setAttribute("profileType", "O");
                     break;
                 case 'S':
                     viewProfile = (SellerDTO) session.getAttribute("user");
+                    if(null == request.getAttribute("txtFullName"))
+                    request.setAttribute("txtFullName", ((SellerDTO) viewProfile).getFullName());
+                    if(null == request.getAttribute("txtcid"))
+                    request.setAttribute("txtcid", ((SellerDTO) viewProfile).getSCID());
+                    if(null == request.getAttribute("txtDate"))
+                    request.setAttribute("txtDate", ((SellerDTO) viewProfile).getDateOfBirth());
+                    if(null == request.getAttribute("address"))
+                    request.setAttribute("address", ((SellerDTO) viewProfile).getAddress());
                     request.setAttribute("profileType", "S");
                     break;
                 case 'R':
                     viewProfile = (ResidentDTO) session.getAttribute("user");
+                    if(null == request.getAttribute("txtFullName"))
+                    request.setAttribute("txtFullName", ((ResidentDTO) viewProfile).getFullName());
+                    if(null == request.getAttribute("txtcid"))
+                    request.setAttribute("txtcid", ((ResidentDTO) viewProfile).getRCID());
+                    if(null == request.getAttribute("txtDate"))
+                    request.setAttribute("txtDate", ((ResidentDTO) viewProfile).getDateOfBirth());
+                    if(null == request.getAttribute("address"))
+                    request.setAttribute("address", ((ResidentDTO) viewProfile).getAddress());
                     request.setAttribute("profileType", "R");
                     break;
                 default:
                     out.print("Failed to get user type");
             }
             request.setAttribute("viewProfile", viewProfile);
-            request.setAttribute("edit", "true");
+            String edit = "true";
+            request.setAttribute("edit", edit);
             request.getRequestDispatcher("ViewProfile.jsp").forward(request, response);
-//    out.print(viewProfile.toString());
+//            out.print(viewProfile.toString());
 
         }
     }

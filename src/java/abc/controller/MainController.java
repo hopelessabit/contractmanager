@@ -87,6 +87,9 @@ public class MainController extends HttpServlet {
                 case "viewCustomerProfile":
                     url = "ViewCustomerProfileServlet";
                     break;
+                case "Save Profile":
+                    url = "SaveProfileServlet";
+                    break;
                 case "Search User":
                     url = "AdminIndex.jsp";
                     break;

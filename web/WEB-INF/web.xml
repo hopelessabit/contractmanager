@@ -69,6 +69,10 @@
         <servlet-class>abc.controller.NewServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>SaveProfileServlet</servlet-name>
+        <servlet-class>abc.controller.SaveProfileServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>ViewUser</servlet-name>
         <servlet-class>abc.controller.ViewUser</servlet-class>
     </servlet>
@@ -203,6 +207,10 @@
     <servlet-mapping>
         <servlet-name>NewServlet</servlet-name>
         <url-pattern>/NewServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SaveProfileServlet</servlet-name>
+        <url-pattern>/SaveProfileServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ViewUser</servlet-name>

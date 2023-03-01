@@ -88,7 +88,25 @@ public class ResidentDAO {
             e.printStackTrace();
         }
         return result;
-
+    }
+    
+    public static int updateProfile(String name, Date dob, String address, String CID, int ID) {
+        int result = 0;
+        try {
+            Connection cn = DBUtils.getConnection();
+            String sql = "update Resident set fullname=?, dateOfBirth=?, address1=?, RCID=? where RID=?";
+            PreparedStatement pr = cn.prepareStatement(sql);
+            pr.setString(1, name);
+            pr.setDate(2, dob);
+            pr.setString(3, address);
+            pr.setString(4, CID);
+            pr.setInt(5, ID);
+            result = pr.executeUpdate();
+            cn.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
     public static ArrayList getResidentList() {
         ArrayList<ResidentDTO> list = new ArrayList();

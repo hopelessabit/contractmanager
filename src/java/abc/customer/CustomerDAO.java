@@ -7,6 +7,7 @@ package abc.customer;
 
 import abc.utils.DBUtils;
 import java.sql.Connection;
+import java.sql.Date;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -105,7 +106,6 @@ public class CustomerDAO {
 
     public static int changePass(String newPass, String email) {
         int result = 0;
-
         try {
             Connection cn = DBUtils.getConnection();
             String sql = "update Customer set password=? where email=?";
@@ -120,10 +120,26 @@ public class CustomerDAO {
             e.printStackTrace();
         }
         return result;
-
     }
 
-    
+    public static int updateProfile(String name, Date dob, String address, String CCID, int CID) {
+        int result = 0;
+        try {
+            Connection cn = DBUtils.getConnection();
+            String sql = "update Customer set fullname=?, dateOfBirth=?, address1=?, CCID=? where CID=?";
+            PreparedStatement pr = cn.prepareStatement(sql);
+            pr.setString(1, name);
+            pr.setDate(2, dob);
+            pr.setString(3, address);
+            pr.setString(4, CCID);
+            pr.setInt(5, CID);
+            result = pr.executeUpdate();
+            cn.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 
     public static ArrayList getCustomerList() {
         ArrayList<CustomerDTO> list = new ArrayList();
@@ -186,11 +202,7 @@ public class CustomerDAO {
 
         return cus;
     }
-        public static void main(String[] args) {
-//         System.out.println(changePass("1111111","h@gmail.com"));
-//        System.out.println(getAccount("khachhanga@gmail.com", "123"));
-        System.out.println(updateCustomer("1","khachhanga@gmail.com","123123123000","123","10/30/2000","Hung","123","h","hcm",1));
-    }
+
     public static int updateCustomer(String id, String email, String cid, String password, String dob, String name, String phone, String avatar,String address, int status) {
         int result = 0;
         try {

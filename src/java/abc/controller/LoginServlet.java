@@ -67,22 +67,22 @@ public class LoginServlet extends HttpServlet {
             if (customer != null) {
                 s.setAttribute("user", customer);
                 s.setAttribute("userType", "C");
-                url = "CustomerIndex.jsp";
+                url = "Find2ContractsServlet";
                 request.getRequestDispatcher(url).forward(request, response);
             } else if (owner != null) {
                 s.setAttribute("user", owner);
                 s.setAttribute("userType", "O");
-                url = "OwnerIndex.jsp";
+                url = "Find2ContractsServlet";
                 request.getRequestDispatcher(url).forward(request, response);
             }  else if (resident != null) {
                 s.setAttribute("user", resident);
                 s.setAttribute("userType", "R");
-                url = "ResidentIndex.jsp";
+                url = "Find2ContractsServlet";
                 request.getRequestDispatcher(url).forward(request, response);
             } else if (seller != null) {
                 s.setAttribute("user", seller);
                 s.setAttribute("userType", "S");
-                url = "SellerIndex.jsp";
+                url = "Find2ContractsServlet";
                 request.getRequestDispatcher(url).forward(request, response);
             } else if (admin != null) {
                 s.setAttribute("admin", admin);                
