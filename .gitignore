@@ -105,7 +105,8 @@ Thumbs.db
 *.der
 *.key
 *.pem
-
+/nbproject/private/private.properties
+/nbproject/private/genfiles.properties
 # --------------------------------------------------------
 # BEGIN Explictly Allowed Files (i.e. do NOT ignore these)
 # --------------------------------------------------------
