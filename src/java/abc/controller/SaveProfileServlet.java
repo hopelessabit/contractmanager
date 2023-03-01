@@ -95,34 +95,30 @@ public class SaveProfileServlet extends HttpServlet {
                     case ('C'):
                         user = (CustomerDTO) request.getSession().getAttribute("user");
                         CustomerDAO.updateProfile(fullName, dateOfBirth, address, CID, ((CustomerDTO) user).getCID());
-                        user = CustomerDAO.searchAccount(((CustomerDTO)request.getSession().getAttribute("user")).getCID());
-                        request.getSession().setAttribute("user", user);
+                        user = CustomerDAO.searchAccount(((CustomerDTO) request.getSession().getAttribute("user")).getCID());
                         break;
                     case ('S'):
                         user = (SellerDTO) request.getSession().getAttribute("user");
                         SellerDAO.updateProfile(fullName, dateOfBirth, address, CID, ((SellerDTO) user).getSaID());
-                        user = SellerDAO.searchSeller(((SellerDTO)request.getSession().getAttribute("user")).getSaID());
-                        request.getSession().setAttribute("user", user);
+                        user = SellerDAO.searchSeller(((SellerDTO) request.getSession().getAttribute("user")).getSaID());
                         break;
                     case ('R'):
                         user = (ResidentDTO) request.getSession().getAttribute("user");
                         ResidentDAO.updateProfile(fullName, dateOfBirth, address, CID, ((ResidentDTO) user).getRID());
-                        user = ResidentDAO.searchResident(((ResidentDTO)request.getSession().getAttribute("user")).getRID());
-                        request.getSession().setAttribute("user", user);
+                        user = ResidentDAO.searchResident(((ResidentDTO) request.getSession().getAttribute("user")).getRID());
                         break;
                     default:
                         user = (OwnerDTO) request.getSession().getAttribute("user");
                         OwnerDAO.updateProfile(fullName, dateOfBirth, address, CID, ((OwnerDTO) user).getOID());
-                        user = OwnerDAO.searchOwner(((OwnerDTO)request.getSession().getAttribute("user")).getOID());
-                        request.getSession().setAttribute("user", user);
+                        user = OwnerDAO.searchOwner(((OwnerDTO) request.getSession().getAttribute("user")).getOID());
                         break;
                 }
                 request.setAttribute("noti", "Update profile success!");
+                request.getSession().setAttribute("user", user);
             }
 //            out.print("<p>"+user.toString()+"</p>");
 //            CustomerDTO newuser = CustomerDAO.searchAccount(1);
 //            out.print("<p>"+newuser.toString()+"</p>");
-            
             request.getRequestDispatcher("ViewSelfProfileServlet").forward(request, response);
         }
     }

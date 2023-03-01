@@ -88,6 +88,10 @@
         <servlet-name>UpdateFeeServlet</servlet-name>
         <servlet-class>abc.controller.UpdateFeeServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ChangePassLoggedInServlet</servlet-name>
+        <servlet-class>abc.controller.ChangePassLoggedInServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>
         <url-pattern>/MainController</url-pattern>
@@ -223,6 +227,10 @@
     <servlet-mapping>
         <servlet-name>UpdateFeeServlet</servlet-name>
         <url-pattern>/UpdateFeeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChangePassLoggedInServlet</servlet-name>
+        <url-pattern>/ChangePassLoggedInServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

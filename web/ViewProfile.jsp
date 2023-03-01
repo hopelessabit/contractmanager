@@ -97,7 +97,9 @@
                 <tr><td>Address</td><td>${requestScope.viewProfile.getAddress()}</td></tr>
             </c:if>
         </table>
-
+            <form action="UserChangePassword.jsp">
+                <input type="submit" value="Change password"/>
+            </form>
     </body>
 </html>
 
