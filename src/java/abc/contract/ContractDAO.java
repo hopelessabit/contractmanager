@@ -1,3 +1,4 @@
+ 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -18,13 +19,6 @@ import java.util.ArrayList;
  * @author mical
  */
 public class ContractDAO {
-    
-    public static void main(String[] args) {
-        ArrayList<ContractDTO> list = get2Contracts('R', 1);
-        for (ContractDTO contractDTO : list) {
-            System.out.println(contractDTO.toString());
-        }
-    }
 
     public static ArrayList<ContractDTO> getContracts(char userType, int id) {
         ArrayList<ContractDTO> result = new ArrayList<>();
@@ -40,15 +34,16 @@ public class ContractDAO {
                         + "left join [dbo].[Owner] on [dbo].[Contract].[OID] = [dbo].[Owner].[OID]\n"
                         + "left join [dbo].[Seller] on [dbo].[Contract].[SID] = [dbo].[Seller].[SID]\n"
                         + "left join [dbo].[Resident] on [dbo].[Contract].[RID] = [dbo].[Resident].[RID]\n";
+
                 if (userType == 'C') {
                     sql = sql + "where Contract.[CID]=?";
-                } else
+                }
                 if (userType == 'O') {
                     sql = sql + "where Contract.[OID]=?";
-                } else
+                }
                 if (userType == 'R') {
                     sql = sql + "where Contract.[RID]=?";
-                } else
+                }
                 if (userType == 'S') {
                     sql = sql + "where Contract.[SID]=?";
                 }
@@ -229,6 +224,12 @@ public class ContractDAO {
         return result;
     }
 
+    public static void main(String[] args) {
+        ContractDTO a = getContractDetail("5");
+        System.out.println(a);
+
+    }
+
     public static ContractDTO getContractDetail(String id) {
         ContractDTO contract = null;
         try {
@@ -266,4 +267,28 @@ public class ContractDAO {
 
         return contract;
     }
+
+    public static int updateFee(int fee, int total, String id) {
+         Connection cn = null;
+         int rs=0;
+         try{ 
+             cn=DBUtils.getConnection();
+             if(cn!=null){
+                 String sql="update ContractInformation set fee=?,total=? where CoID=?";
+                 PreparedStatement pr=cn.prepareStatement(sql);
+                 pr.setInt(1,fee);
+                 pr.setInt(2,total);
+                 pr.setString(3,id);
+                 rs=pr.executeUpdate();
+             }
+             
+         }catch(ClassNotFoundException | SQLException e){
+            e.printStackTrace();
+         }
+         return rs;
+    }
 }
+ 
+    
+
+ 

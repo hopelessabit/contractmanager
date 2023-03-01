@@ -39,6 +39,24 @@ public class SellerDTO {
         this.status = status;
     }
 
+    public SellerDTO(int SaID, String fullName, int status) {
+        this.SaID = SaID;
+        this.fullName = fullName;
+        this.status = status;
+    }
+
+    public SellerDTO(int SaID, String email, String SCID, String password, Date dateOfBirth, String fullName, String phoneNumber, String address, int status) {
+        this.SaID = SaID;
+        this.email = email;
+        this.SCID = SCID;
+        this.password = password;
+        this.dateOfBirth = dateOfBirth;
+        this.fullName = fullName;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.status = status;
+    }
+
     public String getAvatar() {
         return avatar;
     }
@@ -121,8 +139,7 @@ public class SellerDTO {
 
     @Override
     public String toString() {
-        return "SellerDTO{" + "SaID=" + SaID + ", email=" + email + ", SCID=" + SCID + ", password=" + password + ", dateOfBirth=" + dateOfBirth + ", fullName=" + fullName + ", phoneNumber=" + phoneNumber + ", avatar=" + avatar + ", address=" + address + ", status=" + status + '}';
+        return "SellerDTO{" + "SaID=" + SaID + ", email=" + email + ", SCID=" + SCID + ", password=" + password + ", dateOfBirth=" + dateOfBirth + ", fullName=" + fullName + ", phoneNumber=" + phoneNumber + ", address=" + address + ", status=" + status + '}';
     }
-
     
 }

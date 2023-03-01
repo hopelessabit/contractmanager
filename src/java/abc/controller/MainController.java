@@ -90,6 +90,21 @@ public class MainController extends HttpServlet {
                 case "Save Profile":
                     url = "SaveProfileServlet";
                     break;
+                case "Search User":
+                    url = "AdminIndex.jsp";
+                    break;
+                case "ViewUser":
+                    url = "ViewUser";
+                    break;
+                case "Update User":
+                    url = "UpdateUserServlet";
+                    break;
+                case "Add New Account":
+                    url = "AddUserServlet";
+                    break;
+                case "Update Fee":
+                    url = "UpdateFeeServlet";
+                    break;
             }
             request.getRequestDispatcher(url).forward(request, response);
         }

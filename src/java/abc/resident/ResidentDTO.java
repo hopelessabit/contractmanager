@@ -1,3 +1,4 @@
+ 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -20,15 +21,21 @@ public class ResidentDTO {
     private String fullName;
     private String phoneNumber;
     private String avatar;
+    
     private String address;
     private int status;
 
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
+    public ResidentDTO(int RID, String email, String RCID, String password, Date dateOfBirth, String fullName, String phoneNumber, String avatar, String address, int status) {
+        this.RID = RID;
+        this.email = email;
+        this.RCID = RCID;
+        this.password = password;
+        this.dateOfBirth = dateOfBirth;
+        this.fullName = fullName;
+        this.phoneNumber = phoneNumber;
         this.avatar = avatar;
+        this.address = address;
+        this.status = status;
     }
 
     public int getRID() {
@@ -103,6 +110,14 @@ public class ResidentDTO {
         this.status = status;
     }
 
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
     public ResidentDTO() {
     }
 
@@ -118,23 +133,15 @@ public class ResidentDTO {
         this.status = status;
     }
 
-    public ResidentDTO(int RID, String email, String RCID, String password, Date dateOfBirth, String fullName, String phoneNumber, String avatar, String address, int status) {
+    public ResidentDTO(int RID, String fullName, int status) {
         this.RID = RID;
-        this.email = email;
-        this.RCID = RCID;
-        this.password = password;
-        this.dateOfBirth = dateOfBirth;
         this.fullName = fullName;
-        this.phoneNumber = phoneNumber;
-        this.avatar = avatar;
-        this.address = address;
         this.status = status;
     }
-    
-    
 
     @Override
     public String toString() {
         return "ResidentDTO{" + "RID=" + RID + ", email=" + email + ", RCID=" + RCID + ", password=" + password + ", dateOfBirth=" + dateOfBirth + ", fullName=" + fullName + ", phoneNumber=" + phoneNumber + ", address=" + address + ", status=" + status + '}';
     }
 }
+ 

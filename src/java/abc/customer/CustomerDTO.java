@@ -52,6 +52,12 @@ public class CustomerDTO {
         this.status = status;
     }
 
+    public CustomerDTO(int CID, String fullName, int status) {
+        this.CID = CID;
+        this.fullName = fullName;
+        this.status = status;
+    }
+
 
 
     public String getAvatar() {
