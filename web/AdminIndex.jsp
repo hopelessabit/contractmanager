@@ -4,6 +4,8 @@
     Author     : Admin
 --%>
 
+<%@page import="abc.report.ReportDAO"%>
+<%@page import="abc.report.ReportDTO"%>
 <%@page import="abc.seller.SellerDAO"%>
 <%@page import="abc.resident.ResidentDAO"%>
 <%@page import="abc.owner.OwnerDAO"%>
@@ -206,7 +208,7 @@
             }
 
         %>
-          <%  if (selList != null && !selList.isEmpty()) {
+        <%  if (selList != null && !selList.isEmpty()) {
         %>
 
         <form action="MainController" method="POST">
@@ -268,8 +270,8 @@
             ${ERROR.existed}           
         </form>       
         ${notification} <!--Cau thong bao add user thanh cong hay khong-->
-        
-        <%            ArrayList<ContractDTO> coList;
+
+        <%  ArrayList<ContractDTO> coList;
             coList = ContractDAO.getContracts();
             if (!coList.isEmpty() && coList != null) {%>
         <table border="1">
@@ -302,11 +304,38 @@
         </table>
         <%       } else { %>
         <h3>The contract list is empty</h3>
-
         <%
             }
         %>
 
+        <%  ArrayList<ReportDTO> rpList;
+            rpList = ReportDAO.getReports();
+            if (!rpList.isEmpty() && rpList != null) {%>
+        <table border="1">
+            <caption>Report List</caption>
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Content</td>                       
+                    <td>Create Date</td>
+                </tr>
+            </thead>
+            <tbody>
+                <%for (ReportDTO rp : rpList) {
+                %>
+                <tr>
+                    <td><%=rp.getRpID()%></td>
+                    <td><%=rp.getContent()%></td>
+                    <td><%=rp.getCreateDate()%></td>                                    
+                </tr>
+                <%}%>
+            </tbody>
+        </table>
+        <%       } else { %>
+        <h3>The report list is empty</h3>
+        <%
+            }
+        %>
         <% } else {%>
         <h1>Access Denied</h1>
         <a href="Index.jsp">Back to login page</a>
