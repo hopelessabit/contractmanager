@@ -2,19 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/D:/Study/SWP302/ver2/contractmanager/web/CustomerIndex.jsp</file>
-            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/customer/CustomerDAO.java</file>
-            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/owner/OwnerDAO.java</file>
-            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/seller/SellerDTO.java</file>
-            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/controller/MainController.java</file>
-            <file>file:/D:/Study/SWP302/ver2/contractmanager/nbproject/build-impl.xml~</file>
-            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/seller/SellerDAO.java</file>
-            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/controller/LoginServlet.java</file>
-            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/controller/Find2ContractsServlet.java</file>
-            <file>file:/D:/Study/SWP302/ver2/contractmanager/web/WEB-INF/web.xml</file>
-            <file>file:/D:/Study/SWP302/ver2/contractmanager/src/java/abc/controller/SaveProfileServlet.java</file>
-            <file>file:/D:/Study/SWP302/ver2/contractmanager/nbproject/private/private.properties</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
