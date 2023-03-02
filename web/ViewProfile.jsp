@@ -17,7 +17,7 @@
         <c:set var="profileType" value="${requestScope.profileType}"></c:set>
         <c:set var="edit" value="${requestScope.edit}"></c:set>
             <table>
-            <c:if test="${edit = "true"}">
+            <c:if test="${edit == 'true'}">
                 <form action="MainController" method="post">
                     <tr><td>View Image: ${requestScope.viewProfile.getAvatar()}</td></tr>
                     <tr>
@@ -69,7 +69,7 @@
                 </form>
             </c:if>
 
-            <c:if test="${edit != "true"}">
+            <c:if test="${edit != 'true'}">
                 <tr><td>View Image: </td><td>${requestScope.viewProfile.getAvatar()}</td></tr>
                 <tr><td>Full name</td><td>${requestScope.viewProfile.getFullName()}</td></tr>
                 <tr><td>Email</td><td>${requestScope.viewProfile.getEmail()}</td></tr>
@@ -97,9 +97,9 @@
                 <tr><td>Address</td><td>${requestScope.viewProfile.getAddress()}</td></tr>
             </c:if>
         </table>
-            <form action="UserChangePassword.jsp">
-                <input type="submit" value="Change password"/>
-            </form>
+        <form action="UserChangePassword.jsp">
+            <input type="submit" value="Change password"/>
+        </form>
     </body>
 </html>
 
