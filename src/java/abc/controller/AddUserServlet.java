@@ -6,10 +6,14 @@
 package abc.controller;
 
 import abc.customer.CustomerDAO;
+import abc.customer.CustomerDTO;
 import abc.error.ErrorDTO;
 import abc.owner.OwnerDAO;
+import abc.owner.OwnerDTO;
 import abc.resident.ResidentDAO;
+import abc.resident.ResidentDTO;
 import abc.seller.SellerDAO;
+import abc.seller.SellerDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -50,6 +54,14 @@ public class AddUserServlet extends HttpServlet {
             boolean flag = false;
             String regex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
             ErrorDTO err = new ErrorDTO();
+            CustomerDTO customer = CustomerDAO.getAccount(email );
+            OwnerDTO owner = OwnerDAO.getAccount(email );
+            ResidentDTO resident = ResidentDAO.getAccount(email );
+            SellerDTO seller = SellerDAO.getAccount(email );
+            if(customer!=null||owner!=null||resident!=null||seller!=null){
+                request.setAttribute("exist", "Can't create because the account associates with this email is found");
+                request.getRequestDispatcher("AdminIndex.jsp").forward(request, response);
+            }
             if (!email.matches(regex)) {
                 flag = true;
 
