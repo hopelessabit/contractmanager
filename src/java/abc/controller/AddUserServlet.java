@@ -59,7 +59,7 @@ public class AddUserServlet extends HttpServlet {
             ResidentDTO resident = ResidentDAO.getAccount(email );
             SellerDTO seller = SellerDAO.getAccount(email );
             if(customer!=null||owner!=null||resident!=null||seller!=null){
-                request.setAttribute("exist", "Can't create because the account associates with this email is found");
+                request.setAttribute("notification", "Can't create because the account associates with this email is found");
                 request.getRequestDispatcher("AdminIndex.jsp").forward(request, response);
             }
             if (!email.matches(regex)) {
