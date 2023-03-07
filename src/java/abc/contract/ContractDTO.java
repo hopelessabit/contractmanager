@@ -28,10 +28,31 @@ public class ContractDTO {
     private int total;
     private Date createDate;
     private Date endDate;
+    private int status;
 
     public ContractDTO() {
     }
 
+    public ContractDTO(int CoID, int RoID, int CID, String CName, int RID, String RName, int OID, String OName, int SaID, String Sname, int check, int fee, int total, Date createDate, Date endDate, int status) {
+        this.CoID = CoID;
+        this.RoID = RoID;
+        this.CID = CID;
+        this.CName = CName;
+        this.RID = RID;
+        this.RName = RName;
+        this.OID = OID;
+        this.OName = OName;
+        this.SaID = SaID;
+        this.Sname = Sname;
+        this.check = check;
+        this.fee = fee;
+        this.total = total;
+        this.createDate = createDate;
+        this.endDate = endDate;
+        this.status = status;
+    }
+
+    
     public ContractDTO(int CoID, int RoID, int CID, String CName, int RID, String RName, int OID, String OName, int SaID, String Sname, int check, int fee, int total, Date createDate, Date endDate) {
         this.CoID = CoID;
         this.RoID = RoID;
@@ -184,8 +205,6 @@ public class ContractDTO {
 
     @Override
     public String toString() {
-        return "ContractDTO{" + "CoID=" + CoID + ", RoID=" + RoID + ", CID=" + CID + ", CName=" + CName + ", RID=" + RID + ", RName=" + RName + ", OID=" + OID + ", OName=" + OName + ", SaID=" + SaID + ", Sname=" + Sname + ", check=" + check + ", fee=" + fee + ", total=" + total + ", createDate=" + createDate + ", endDate=" + endDate + '}';
+        return "ContractDTO{" + "CoID=" + CoID + ", RoID=" + RoID + ", CID=" + CID + ", CName=" + CName + ", RID=" + RID + ", RName=" + RName + ", OID=" + OID + ", OName=" + OName + ", SaID=" + SaID + ", Sname=" + Sname + ", check=" + check + ", fee=" + fee + ", total=" + total + ", createDate=" + createDate + ", endDate=" + endDate + ", status=" + status + '}';
     }
-    
-    
 }

@@ -15,11 +15,25 @@
         <title>Contract Manage</title>
     </head>
     <body>
+        <c:set var="user" value="${sessionScope.user}"/>
         <c:set var="contractList" value="${requestScope.contractList}"></c:set>
         <form action="MainController" method="post">
             <input type="submit" value="Logout" name="action"/>
         </form>
         <p><a href="Find2ContractsServlet">HOME PAGE</a></p>
+        <form action="MainController" method="post">
+            <input type="text" name="txtSearchName"/>
+            <input type="date" name="txtFromDate"/>
+            <input type="date" name="txtToDate"/>
+            <select name="txtStatus">
+                <option value="-1" selected="selected">All</option>
+                <option value="0">Not Signed</option>
+                <option value="1">Signed</option>
+                <option value="2">Expired</option>
+            </select>
+            <input type="submit" name="action" value="Search Contract"/>
+        </form>
+        <p></p>
         <table>
             <c:forEach var="contract" items="${contractList}">
                 <tr><td>${contract.toString()}</td></tr>

@@ -96,6 +96,10 @@
         <servlet-name>ForgotPasswordServlet</servlet-name>
         <servlet-class>abc.controller.ForgotPasswordServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SearchContractServlet</servlet-name>
+        <servlet-class>abc.controller.SearchContractServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>
         <url-pattern>/MainController</url-pattern>
@@ -239,6 +243,10 @@
     <servlet-mapping>
         <servlet-name>ForgotPasswordServlet</servlet-name>
         <url-pattern>/ForgotPasswordServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchContractServlet</servlet-name>
+        <url-pattern>/SearchContractServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
