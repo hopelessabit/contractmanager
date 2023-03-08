@@ -62,7 +62,7 @@
             ArrayList<OwnerDTO> ownList = OwnerDAO.getOwnerList();
             ArrayList<ResidentDTO> resList = ResidentDAO.getResidentList();
             ArrayList<SellerDTO> selList = SellerDAO.getSellerList();
-
+            int totalUser=CustomerDAO.getCustomerList().size()+OwnerDAO.getOwnerList().size()+ResidentDAO.getResidentList().size()+SellerDAO.getSellerList().size();
             if (keyWord == null) {
                 cusList = CustomerDAO.getCustomerList();
                 ownList = OwnerDAO.getOwnerList();
@@ -87,7 +87,7 @@
             }
             if (cusList != null && !cusList.isEmpty()) {
         %>
-
+        Total User: <%=totalUser%>
         <form action="MainController" method="POST">
             <table border="1">
                 <caption>Customer List</caption>
@@ -273,7 +273,11 @@
 
         <%  ArrayList<ContractDTO> coList;
             coList = ContractDAO.getContracts();
+            int totalContract=ContractDAO.getContracts().size();
+            int totalFee =0;
             if (!coList.isEmpty() && coList != null) {%>
+            Total Contract: <%=totalContract%>
+            
         <table border="1">
             <caption>Contract List</caption>
             <thead>
@@ -289,7 +293,7 @@
 
             <tbody>
                 <%for (ContractDTO contract : coList) {
-
+                     totalFee+=contract.getFee();
                 %>
                 <tr>
                     <td><%=contract.getCoID()%></td>
@@ -302,6 +306,7 @@
                 <%}%>
             </tbody>
         </table>
+            Total Fee: <%=totalFee%>
         <%       } else { %>
         <h3>The contract list is empty</h3>
         <%
