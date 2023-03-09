@@ -1005,7 +1005,7 @@ public class ContractDAO {
                         }
                         break;
                     case 0:
-                        if (Status != -1){
+                        if (Status != -1) {
                             pst.setInt(5, Status);
                         }
                 }
@@ -1062,32 +1062,68 @@ public class ContractDAO {
         return result;
     }
 
-    public static void main(String[] args) {
-        String test = "";
-        test = test + "hello";
-        Date from = new Date(120, 1, 9);
-        Date to = new Date(125, 10, 10);
-        String nullString = null;
-        ArrayList<ContractDTO> list = searchContract("A", from, to, 1, 'C');
-        System.out.println(list.size());
-        System.out.println(from.toString());
-        list = searchContractFromDate(from, 'C', 1);
-        System.out.println(list.size());
-        list = searchContractToDate(to, 'C', 1);
-        System.out.println(list.size());
-        list = searchContractByStatus(0, 1, 'C');
-        System.out.println("status = 1: list's size: " + list.size());
-        list = searchContract("A", from, to, 1, 'C', 0);
-        System.out.println("all: " + list.size());
+    public static void updateDesciption(String msg) {
+        Connection cn = null;
+        try {
+            cn = abc.utils.DBUtils.getConnection();
+            if (cn != null) {
+                String sql = "update dbo.ContractInformation\n"
+                        + "set description = ?\n"
+                        + "where CoID = ?";
+                PreparedStatement pst = cn.prepareStatement(sql);
+                pst.setString(1, msg);
+                pst.setInt(2, 1);
+                pst.executeUpdate();
+            }
+        } catch (Exception e) {
+            e.getCause();
+        } finally {
+            if (cn != null) {
+                try {
+                    cn.close();
+                } catch (Exception e) {
+                }
+            }
 
-        Date date3 = null;
-        if (date3 == null) {
-            System.out.println("null :D ?");
         }
-        Date date1 = new Date(2023, 01, 01);
-        Date date2 = new Date(2023, 02, 01);
-        System.out.println(date3);
-        System.out.println(date1.compareTo(date2));
+    }
+
+    public static String read() {
+        String result = "";
+        Connection cn = null;
+        try {
+            cn = abc.utils.DBUtils.getConnection();
+            if (cn != null) {
+                String sql = "select [description]\n"
+                        + "from [dbo].[ContractInformation]\n"
+                        + "where [CoID]=?";
+                PreparedStatement pst = cn.prepareStatement(sql);
+                pst.setInt(1, 2);
+                ResultSet rs = pst.executeQuery();
+                result = rs.getString(1);
+            }
+        } catch (Exception e) {
+            e.getCause();
+        } finally {
+            if (cn != null) {
+                try {
+                    cn.close();
+                } catch (Exception e) {
+                }
+            }
+        }
+        return result;
+    }
+
+    public static void addContract() {
+
+    }
+
+    public static void main(String[] args) {
+        System.out.println("hi");
+        updateDesciption("fasfa\nfasdfasd\nfgagsdf\n");
+        System.out.println("hi");
+        System.out.println(read());
     }
 //DECLARE @date1 DATE, @date2 DATE;                               
 //SET @date1='2023-02-10';

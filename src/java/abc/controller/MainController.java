@@ -114,6 +114,9 @@ public class MainController extends HttpServlet {
                 case "Search Contract":
                     url = "SearchContractServlet";
                     break;
+                case "Create Contract":
+                    url = "CreateContractServlet";
+                    break;
             }
             request.getRequestDispatcher(url).forward(request, response);
         }

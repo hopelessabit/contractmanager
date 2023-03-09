@@ -11,7 +11,6 @@ package abc.room;
  */
 public class RoomDTO {
     private int RoID;
-    private int CID;
     private int RID;
     private int OID;
     private int status;
@@ -22,14 +21,6 @@ public class RoomDTO {
 
     public void setRoID(int RoID) {
         this.RoID = RoID;
-    }
-
-    public int getCID() {
-        return CID;
-    }
-
-    public void setCID(int CID) {
-        this.CID = CID;
     }
 
     public int getRID() {
@@ -59,9 +50,8 @@ public class RoomDTO {
     public RoomDTO() {
     }
 
-    public RoomDTO(int RoID, int CID, int RID, int OID, int status) {
+    public RoomDTO(int RoID, int RID, int OID, int status) {
         this.RoID = RoID;
-        this.CID = CID;
         this.RID = RID;
         this.OID = OID;
         this.status = status;
@@ -69,7 +59,7 @@ public class RoomDTO {
 
     @Override
     public String toString() {
-        return "RoomDTO{" + "RoID=" + RoID + ", CID=" + CID + ", RID=" + RID + ", OID=" + OID + ", status=" + status + '}';
+        return "RoomDTO{" + "RoID=" + RoID + ", RID=" + RID + ", OID=" + OID + ", status=" + status + '}';
     }
     
     

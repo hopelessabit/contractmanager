@@ -13,7 +13,7 @@ import abc.resident.ResidentDAO;
 import abc.resident.ResidentDTO;
 import abc.seller.SellerDAO;
 import abc.seller.SellerDTO;
-import abc.utils.validation;
+import abc.utils.Validation;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
@@ -56,8 +56,6 @@ public class SaveProfileServlet extends HttpServlet {
             request.setAttribute("txtDate", dateOfBirth);
             request.setAttribute("address", address);
             Object user = new Object();
-            out.print((new Date(System.currentTimeMillis())).toString() + "<p>new</p>");
-            out.print(dateOfBirth.toString() + ":" + (new Date(System.currentTimeMillis()).toString()) + "=> " + (new Date(System.currentTimeMillis())).compareTo(dateOfBirth));
             char userType = ((String) request.getSession().getAttribute("userType")).charAt(0);
             if (fullName.equals("")) {
                 out.print("Name cannnot be null");
@@ -69,7 +67,7 @@ public class SaveProfileServlet extends HttpServlet {
                 request.setAttribute("CIDError", "CID cannot be null!");
                 ready = false;
             }
-            if (!validation.onlyNumber(CID)) {
+            if (!Validation.onlyNumber(CID)) {
                 out.print("CID must be all number");
                 request.setAttribute("CIDError", "CID must be all number");
                 ready = false;

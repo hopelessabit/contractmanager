@@ -100,6 +100,10 @@
         <servlet-name>SearchContractServlet</servlet-name>
         <servlet-class>abc.controller.SearchContractServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CreateContractServlet</servlet-name>
+        <servlet-class>abc.controller.CreateContractServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>
         <url-pattern>/MainController</url-pattern>
@@ -247,6 +251,10 @@
     <servlet-mapping>
         <servlet-name>SearchContractServlet</servlet-name>
         <url-pattern>/SearchContractServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateContractServlet</servlet-name>
+        <url-pattern>/CreateContractServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

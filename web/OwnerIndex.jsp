@@ -65,6 +65,9 @@
                 </c:forEach>
             </c:if>
         </table>
+        <form action="CreateContract.jsp" method="post">
+            <input type="submit" value="Create Contract">
+        </form>
     </body>
 </html>
 

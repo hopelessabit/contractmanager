@@ -9,7 +9,7 @@ package abc.utils;
  *
  * @author hopelessabit
  */
-public class validation {
+public class Validation {
 
     public static boolean onlyNumber(String st) {
         boolean rs = false;
