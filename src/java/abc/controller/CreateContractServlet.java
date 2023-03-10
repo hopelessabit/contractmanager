@@ -5,9 +5,13 @@
  */
 package abc.controller;
 
+import abc.contract.ContractDAO;
+import static abc.utils.Utilities.*;
 import abc.customer.CustomerDAO;
 import abc.customer.CustomerDTO;
 import abc.owner.OwnerDTO;
+import abc.resident.ResidentDAO;
+import abc.resident.ResidentDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
@@ -37,41 +41,71 @@ public class CreateContractServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             OwnerDTO owner = (OwnerDTO) request.getSession().getAttribute("user");
-            String contractName = request.getParameter("txtContractName");
-            int RoID = Integer.parseInt(request.getParameter("RoID"));
-            String txtlessee = request.getParameter("txtLessee");
-            String txtLCID = request.getParameter("txtLCID");
-            Object lessee = CustomerDAO.searchAccount(txtlessee, txtLCID);
-            if(lessee == null){
+            int OID = owner.getOID();
+            String contractName = request.getParameter("txtContractName"); request.setAttribute("txtContractName", contractName);
+            int RoID = Integer.parseInt(request.getParameter("RoID")); request.setAttribute("RoID", RoID);
+            String txtlessee = request.getParameter("txtLessee"); request.setAttribute("txtLessee", txtlessee);
+            String txtLCID = request.getParameter("txtLCID"); request.setAttribute("txtLCID", txtLCID);
+            int rentalFee = Integer.parseInt(request.getParameter("intRentalFee")); request.setAttribute("intRentailFee", rentalFee);
+            char lesseeType = 'R';
+            boolean brk = false;
+            int userID= 0;
+            CustomerDTO customer = CustomerDAO.searchAccount(txtlessee, txtLCID);
+            if (customer == null) {
+                ResidentDTO resident = ResidentDAO.searchResident(txtlessee, txtLCID);
+                if (resident == null) {
+                    request.setAttribute("lesseeError", "Can not find Lessee");
+                    brk = true;
+                } else {
+                    lesseeType = 'R';
+                    userID = resident.getRID();
+                    request.setAttribute("lessee", resident);
+                }
+            } else {
+                lesseeType = 'C';
+                userID = customer.getCID();
+                request.setAttribute("lessee", customer);
             }
-            
-            String seller = request.getParameter("txtSeller");
-            String txtSCID = request.getParameter("txtSCID");
-            
-            Date from = Date.valueOf(request.getParameter("dateFrom"));
-            Date to = Date.valueOf(request.getParameter("dateTo"));
-            String description = request.getParameter("txtDescription");
-            
+            Date today = abc.utils.Utilities.getDate();
+            Date from = Date.valueOf(request.getParameter("dateFrom")); request.setAttribute("dateFrom", from);
+            Date to = Date.valueOf(request.getParameter("dateTo")); request.setAttribute("dateTo", to);
+
+            if (from.compareTo(today) != 1) {
+                request.setAttribute("fromError", "Commencement date must be atleast 1 day after today!");
+                brk = true;
+            }
+            if (to.compareTo(from) != 1) {
+                request.setAttribute("toError", "Ending date must be atleast 1 month after Commencement date!");
+                brk = true;
+            } else {
+                if (getYear(to.toString()) == getYear(from.toString())) {
+                    if ((getMonth(to.toString()) - getMonth(from.toString())) < 1) {
+                        request.setAttribute("toError", "Ending date must be atleast 1 month after Commencement date!");
+                        brk = true;
+                    } else if((getMonth(to.toString()) - getMonth(from.toString())) == 1){
+                        if((getDay(to.toString()) - getDay(from.toString())) < 0){
+                            request.setAttribute("toError", "Ending date must be atleast 1 month after Commencement date!");
+                            brk = true;
+                        }
+                    }
+                } else if(getYear(to.toString()) == getYear(from.toString())){
+                    if(getMonth(from.toString()) == 12 && getMonth(to.toString()) == 1){
+                        if((getDay(to.toString()) - getDay(from.toString())) < 0){
+                            request.setAttribute("toError", "Ending date must be atleast 1 month after Commencement date!");
+                            brk = true;
+                        }
+                    }
+                }
+            }
+            if(brk) request.getRequestDispatcher("CreateContract.jsp").forward(request, response);
             
             //---------------------------------------------
+            request.setCharacterEncoding("UTF-8");
+            String description = request.getParameter("txtDescription");
             
-            
-            
-            
-            
-            
-            
-            
-            request.setCharacterEncoding("UTF-8");            
-            StringBuffer text = new StringBuffer(description);
-            int loc = (new String(text)).indexOf('\n');
-            while (loc > 0) {
-                text.replace(loc, loc + 1, "<BR>");
-                loc = (new String(text)).indexOf('\n');
-            }
-            request.setAttribute("descript", text);
-            
-//            request.getRequestDispatcher("CreateContract.jsp").forward(request, response);
+            ContractDAO.createContract(RoID, userID, lesseeType, OID, rentalFee, 0, from, to, contractName, description);
+            request.setAttribute("noti", "Create contract successed!");
+            request.getRequestDispatcher("CreateContract.jsp").forward(request, response);
         }
     }
 

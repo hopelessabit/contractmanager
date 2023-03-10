@@ -71,6 +71,24 @@ public class ResidentDAO {
         }
         return resident;
     }
+    public static ResidentDTO searchResident(String name, String CID) {
+        ResidentDTO resident=null;
+        try {
+            Connection cn = DBUtils.getConnection();
+            String sql = "Select * from Resident where [fullname] like ? and RCID = ? and status =1";
+            PreparedStatement pr = cn.prepareStatement(sql);
+            pr.setString(1, "%" + name + "%");
+            pr.setString(2, CID);
+            ResultSet rs = pr.executeQuery();
+            if (rs.next()) {
+                resident = new ResidentDTO( rs.getInt(1),  rs.getString(2),  rs.getString(3),  rs.getString(4),  rs.getDate(5), rs.getString(6),  rs.getString(7),   rs.getString(9),  rs.getInt(10));
+            }
+            cn.close();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return resident;
+    }
     public static int changePass(String newPass,String email) {
         int result = 0;
 
@@ -89,7 +107,6 @@ public class ResidentDAO {
         }
         return result;
     }
-    
     public static int updateProfile(String name, Date dob, String address, String CID, int ID) {
         int result = 0;
         try {
@@ -167,7 +184,6 @@ public class ResidentDAO {
 
         return res;
     }
-
     public static int updateResident(String id, String email, String cid, String password, String dob, String name, String phone,String avatar, String address, int status) {
         int result = 0;
         try {
@@ -215,5 +231,11 @@ public class ResidentDAO {
             e.printStackTrace();
         }
         return result;
+    }
+    
+    
+    public static void main(String[] args) {
+        ResidentDTO rs = searchResident("A", "123123897987");
+        System.out.println(rs.toString());
     }
 }

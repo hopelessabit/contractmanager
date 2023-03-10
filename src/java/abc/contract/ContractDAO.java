@@ -1115,15 +1115,90 @@ public class ContractDAO {
         return result;
     }
 
-    public static void addContract() {
-
+    public static int getContract(int RoID, int ID, char lesseeType, int OID) {
+        int result = 0;
+        Connection cn = null;
+        try {
+            cn = abc.utils.DBUtils.getConnection();
+            if (cn != null) {
+                String sql = "";
+                if (lesseeType == 'C') {
+                    sql = "  select [CoID]\n"
+                            + "  from [dbo].[Contract]\n"
+                            + "  where [RoID]= ? and [CID]= ? and [OID]= ?";
+                } else {
+                    sql = "  select [CoID]\n"
+                            + "  from [dbo].[Contract]\n"
+                            + "  where [RoID]= ? and [RID]= ? and [OID]= ?";
+                }
+                PreparedStatement pst = cn.prepareStatement(sql);
+                pst.setInt(1, RoID);
+                pst.setInt(2, ID);
+                pst.setInt(3, OID);
+                ResultSet rs = pst.executeQuery();
+                if(rs!=null && rs.next()){
+                    result = rs.getInt("CoID");
+                }
+            }
+        } catch (Exception e) {
+            e.getCause();
+        } finally {
+            if (cn != null) {
+                try {
+                    cn.close();
+                } catch (Exception e) {
+                }
+            }
+        }
+        return result;
+    }
+    
+    public static void createContract(int RoID, int ID, char lesseeType, int OID, int rentalFee, int fee, Date from, Date to, String name, String description) {
+        Connection cn = null;
+        try {
+            cn = abc.utils.DBUtils.getConnection();
+            if (cn != null) {
+                String sql = "";
+                if (lesseeType == 'C') {
+                    sql = "INSERT [dbo].[Contract] ([RoID], [CID], [RID], [OID], [SID], [status], [SignStatus]) \n"
+                            + "VALUES (?, ?, NULL, ?, NULL, 0, 1)";
+                } else {
+                    sql = "INSERT [dbo].[Contract] ([RoID], [CID], [RID], [OID], [SID], [status], [SignStatus]) \n"
+                            + "VALUES (?, NULL, ?, ?, NULL, 0, 1)";
+                }
+                PreparedStatement pst = cn.prepareStatement(sql);
+                pst.setInt(1, RoID);
+                pst.setInt(2, ID);
+                pst.setInt(3, OID);
+                pst.executeUpdate();
+                int CoID = getContract(RoID, ID, lesseeType, OID);
+                String sql1 = "INSERT [dbo].[ContractInformation] ([CoID], [fee], [total], [createDate], [endDate], [name], [description]) "
+                        + "VALUES (?, ?, ?, ?, ?, ?, ?)";
+                PreparedStatement pst1 = cn.prepareStatement(sql1);
+                pst1.setInt(1, CoID);
+                pst1.setInt(2, fee);
+                pst1.setInt(3, rentalFee);
+                pst1.setDate(4, from);
+                pst1.setDate(5, to);
+                pst1.setString(6, name);
+                pst1.setString(7, description);
+                pst1.executeUpdate();
+            }
+        } catch (Exception e) {
+            e.getCause();
+        } finally {
+            if (cn != null) {
+                try {
+                    cn.close();
+                } catch (Exception e) {
+                }
+            }
+        }
     }
 
     public static void main(String[] args) {
-        System.out.println("hi");
-        updateDesciption("fasfa\nfasdfasd\nfgagsdf\n");
-        System.out.println("hi");
-        System.out.println(read());
+        int a = getContract(2, 1, 'C', 1);
+        System.out.println(a);
     }
 //DECLARE @date1 DATE, @date2 DATE;                               
 //SET @date1='2023-02-10';

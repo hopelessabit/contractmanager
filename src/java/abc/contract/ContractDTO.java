@@ -29,29 +29,8 @@ public class ContractDTO {
     private Date createDate;
     private Date endDate;
     private int status;
-    private int signStatus;
 
     public ContractDTO() {
-    }
-
-    public ContractDTO(int CoID, int RoID, int CID, String CName, int RID, String RName, int OID, String OName, int SaID, String Sname, int check, int fee, int total, Date createDate, Date endDate, int status, int signStatus) {
-        this.CoID = CoID;
-        this.RoID = RoID;
-        this.CID = CID;
-        this.CName = CName;
-        this.RID = RID;
-        this.RName = RName;
-        this.OID = OID;
-        this.OName = OName;
-        this.SaID = SaID;
-        this.Sname = Sname;
-        this.check = check;
-        this.fee = fee;
-        this.total = total;
-        this.createDate = createDate;
-        this.endDate = endDate;
-        this.status = status;
-        this.signStatus = signStatus;
     }
 
     public ContractDTO(int CoID, int RoID, int CID, String CName, int RID, String RName, int OID, String OName, int SaID, String Sname, int check, int fee, int total, Date createDate, Date endDate, int status) {
@@ -230,14 +209,6 @@ public class ContractDTO {
 
     public void setStatus(int status) {
         this.status = status;
-    }
-
-    public int getSignStatus() {
-        return signStatus;
-    }
-
-    public void setSignStatus(int signStatus) {
-        this.signStatus = signStatus;
     }
 
     @Override

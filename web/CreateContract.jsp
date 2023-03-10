@@ -14,26 +14,28 @@
     </head>
     <body>
         <c:set var="user" value="${sessionScope.user}"></c:set>
-        <c:set var="RoIDs" value="${RoomDAO.getRoomID(1)}"></c:set>
-            <p>Contract's name: <input type="text" name="txtContractName"</p><hr/>
+        <c:set var="RoIDs" value="${RoomDAO.getRoomID(user.getOID())}"></c:set>
+        <c:set var="RoID" value="${requestScope.RoID}"></c:set>
             <form action="MainController" method="post">
+                <p>Contract's name: <input type="text" name="txtContractName" value="${requestScope.txtContractName}"</p><hr/>
                 <p>Room ID:
                     <select name="RoID">
                     <c:forEach items="${RoIDs}" var="num">
-                        <option value="${num}">${num}</option>
+                        <c:if test="${num == RoID}"><option value="${num}" selected="selected">${num}</option></c:if>
+                        <c:if test="${num != RoID}"><option value="${num}">${num}</option></c:if>
                     </c:forEach>
                 </select>
             </p><hr/>
-            <p>The lessee: <input type="text" name="txtLessee"/></p>
-            <p>Identity card no: <input type="text" name="txtLCID"/></p><hr/>
+            <p>The lessee: <input type="text" name="txtLessee" value="${requestScope.txtLessee}"/></p>
+            <p>Identity card no: <input type="text" name="txtLCID" value="${requestScope.txtLCID}"/> ${requestScope.lesseeError}</p><hr/>
             <p>The Lessor: ${user.getFullName()}</p>
             <p>Identity card no: ${user.getOCID()}</p><hr/>
-            <p>Seller name: <input type="text" name="txtSeller"></p>
-            <p>Identity card no: <input type="text" name="txtSCID"</p><hr/>
-            <p>Date of issue: <input type="date" name="dateFrom"/></p>
-            <p>Date of expiry: <input type="date" name="dateTo"/></p>
-            <p><textarea name="text1" rows="1" class="auto_height" oninput="auto_height(this)"></textarea></p>
+            <p>Date of issue: <input type="date" name="dateFrom" value="${requestScope.dateFrom}"/> ${requestScope.fromError}</p>
+            <p>Date of expiry: <input type="date" name="dateTo" value="${requestScope.dateTo}"/> ${requestScope.toError}</p>
+            <p>Rental fee: <input type="number" name="intRentalFee" value="${requestScope.intRentalFee}"></p>
+            <p><textarea name="txtDescription" rows="1" class="auto_height" oninput="auto_height(this)"></textarea></p>
             <input type="submit" name="action" value="Create Contract"/>
+            ${requestScope.noti}
         </form>
             ${requestScope.descript}
 

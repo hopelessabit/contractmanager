@@ -5,12 +5,13 @@
         <group>
             <file>file:/D:/Study/SWP302/ver4/contractmanager/src/java/abc/controller/CreateContractServlet.java</file>
             <file>file:/D:/Study/SWP302/ver4/contractmanager/web/CreateContract.jsp</file>
+            <file>file:/D:/Study/SWP302/ver4/contractmanager/src/java/abc/report/ReportDAO.java</file>
             <file>file:/D:/Study/SWP302/ver4/contractmanager/src/java/abc/utils/Utilities.java</file>
-            <file>file:/D:/Study/SWP302/ver4/contractmanager/src/java/abc/owner/OwnerDTO.java</file>
             <file>file:/D:/Study/SWP302/ver4/contractmanager/src/java/abc/customer/CustomerDAO.java</file>
+            <file>file:/D:/Study/SWP302/ver4/contractmanager/src/java/abc/utils/GetDate.java</file>
             <file>file:/D:/Study/SWP302/ver4/contractmanager/src/java/abc/contract/ContractDTO.java</file>
             <file>file:/D:/Study/SWP302/ver4/contractmanager/src/java/abc/resident/ResidentDAO.java</file>
-            <file>file:/D:/Study/SWP302/ver4/contractmanager/src/java/abc/room/RoomDAO.java</file>
+            <file>file:/D:/Study/SWP302/ver4/contractmanager/src/java/abc/contract/ContractDAO.java</file>
         </group>
     </open-files>
 </project-private>
